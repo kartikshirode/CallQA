@@ -1,0 +1,109 @@
+{
+  "call_id": "syn-tech_support-04",
+  "domain": "tech_support",
+  "seed": 20027,
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "Hello, you've reached support. This is Drew, what can I help with?",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": [
+        {
+          "event_type": "compliance",
+          "subtype": "recording_disclosure",
+          "polarity": "negative"
+        }
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "Can you confirm the name and email on the account so I can find it?",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": [
+        {
+          "event_type": "compliance",
+          "subtype": "identity_verification",
+          "polarity": "positive"
+        }
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "Sure, it's my name with the email I always use.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "customer",
+      "text": "I can't log in, it says my password is wrong but it isn't.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "agent",
+      "text": "Okay, let me walk you through a couple of checks.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "agent",
+      "text": "Let's clear the app cache and reopen it, that fixes most blank screens.",
+      "pause_before": 3.9,
+      "interrupt_prev": false,
+      "event_tags": [
+        {
+          "event_type": "silence",
+          "subtype": null,
+          "polarity": null
+        }
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "Still the same, nothing changed.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "customer",
+      "text": "Forget the steps, escalate me to someone senior right now.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": [
+        {
+          "event_type": "escalation",
+          "subtype": null,
+          "polarity": null
+        }
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "I hear you, this has taken too long. Let me bring in a specialist.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "agent",
+      "text": "Glad it's working now. Is there anything else I can help with?",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "customer",
+      "text": "No, that's it. Thanks for sticking with it.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    }
+  ],
+  "notes": "recording_disclosure omitted; no interruption"
+}

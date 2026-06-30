@@ -1,0 +1,101 @@
+{
+  "call_id": "syn-cancellation-04",
+  "domain": "cancellation",
+  "seed": 15027,
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "Hi, you've reached the cancellations team. What can I do for you?",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "agent",
+      "text": "Just so you're aware, we record these calls for training.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": [
+        {
+          "event_type": "compliance",
+          "subtype": "recording_disclosure",
+          "polarity": "positive"
+        },
+        {
+          "event_type": "compliance",
+          "subtype": "identity_verification",
+          "polarity": "negative"
+        }
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "I'm moving to a different service, so I need to cancel.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "agent",
+      "text": "Okay, I can help with that. Let me check what's on the account.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "agent",
+      "text": "Understood. I'll set the cancellation to process at the end of the period.",
+      "pause_before": 3.2,
+      "interrupt_prev": false,
+      "event_tags": [
+        {
+          "event_type": "silence",
+          "subtype": null,
+          "polarity": null
+        }
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "How much would that discount actually be?",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "customer",
+      "text": "I asked to cancel, not for a sales pitch. Get me a manager.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": [
+        {
+          "event_type": "escalation",
+          "subtype": null,
+          "polarity": null
+        }
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "Fair enough. I'll escalate so a manager can finalize this.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "agent",
+      "text": "Done. Sorry to see you go, and thanks for being with us.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "customer",
+      "text": "No, that's it. Thanks.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    }
+  ],
+  "notes": "identity_verification omitted; no interruption"
+}

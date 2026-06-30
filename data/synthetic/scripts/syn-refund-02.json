@@ -1,0 +1,116 @@
+{
+  "call_id": "syn-refund-02",
+  "domain": "refund",
+  "seed": 8027,
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "Hello, this is Riley on the refunds desk. How can I help?",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "agent",
+      "text": "One thing first, we record these calls for training.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": [
+        {
+          "event_type": "compliance",
+          "subtype": "recording_disclosure",
+          "polarity": "positive"
+        }
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "To look this up, could you confirm the email tied to the order?",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": [
+        {
+          "event_type": "compliance",
+          "subtype": "identity_verification",
+          "polarity": "positive"
+        }
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "Yeah, it's under my name with the email I always use.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "customer",
+      "text": "I was charged for something I cancelled before it shipped.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "agent",
+      "text": "Understood. Give me a moment to look at what happened here.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "agent",
+      "text": "Okay, I'll process the full amount back to your original payment method.",
+      "pause_before": 4.2,
+      "interrupt_prev": false,
+      "event_tags": [
+        {
+          "event_type": "silence",
+          "subtype": null,
+          "polarity": null
+        }
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "Okay, as long as it's the full amount.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "customer",
+      "text": "This is ridiculous. Get me a supervisor please.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": [
+        {
+          "event_type": "escalation",
+          "subtype": null,
+          "polarity": null
+        }
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "That's reasonable. I'll escalate this so it gets handled faster.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "agent",
+      "text": "Refund's processed, you'll see it within a few business days. Anything else?",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "customer",
+      "text": "That's all I needed, cheers.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    }
+  ],
+  "notes": "no interruption"
+}

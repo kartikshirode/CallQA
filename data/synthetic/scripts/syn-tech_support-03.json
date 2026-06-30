@@ -1,0 +1,103 @@
+{
+  "call_id": "syn-tech_support-03",
+  "domain": "tech_support",
+  "seed": 19027,
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "Thanks for calling tech support, this is Taylor. What's going on?",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "agent",
+      "text": "Before we troubleshoot, this call may be recorded for quality and training.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": [
+        {
+          "event_type": "compliance",
+          "subtype": "recording_disclosure",
+          "polarity": "positive"
+        }
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "Let me verify you first. What name is the account under?",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": [
+        {
+          "event_type": "compliance",
+          "subtype": "identity_verification",
+          "polarity": "positive"
+        }
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "Yeah, the registered email is my usual one and the name matches.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "customer",
+      "text": "I can't log in, it says my password is wrong but it isn't.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "agent",
+      "text": "Got it. First, can you tell me what you've already tried?",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "agent",
+      "text": "Try restarting the router and give it about a minute to come back.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "customer",
+      "text": "Okay, hang on, I'm doing that now.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "customer",
+      "text": "Okay, hang on, I'm doing that now.",
+      "pause_before": 0.0,
+      "interrupt_prev": true,
+      "event_tags": [
+        {
+          "event_type": "interruption",
+          "subtype": null,
+          "polarity": null
+        }
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "Looks like that fixed it. I'll note the case in case it returns. Anything else?",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "customer",
+      "text": "That's all, appreciate the help.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    }
+  ],
+  "notes": "no silence; no escalation"
+}

@@ -1,0 +1,109 @@
+{
+  "call_id": "syn-refund-05",
+  "domain": "refund",
+  "seed": 11027,
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "Hi, refunds team here. What can I sort out for you today?",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "agent",
+      "text": "Before we get into it, this call may be recorded for quality and training.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": [
+        {
+          "event_type": "compliance",
+          "subtype": "recording_disclosure",
+          "polarity": "positive"
+        }
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "Can I grab the name and order email so I can find the order?",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": [
+        {
+          "event_type": "compliance",
+          "subtype": "identity_verification",
+          "polarity": "positive"
+        }
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "Of course, both the name and email are what you've got on file.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "customer",
+      "text": "The product showed up broken and I want my money back.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "agent",
+      "text": "Understood. Give me a moment to look at what happened here.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "agent",
+      "text": "Okay, I'll process the full amount back to your original payment method.",
+      "pause_before": 3.4,
+      "interrupt_prev": false,
+      "event_tags": [
+        {
+          "event_type": "silence",
+          "subtype": null,
+          "polarity": null
+        }
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "So when will it actually land in my account?",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "customer",
+      "text": "Okay, as long as it's the full amount.",
+      "pause_before": 0.0,
+      "interrupt_prev": true,
+      "event_tags": [
+        {
+          "event_type": "interruption",
+          "subtype": null,
+          "polarity": null
+        }
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "Refund's processed, you'll see it within a few business days. Anything else?",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "customer",
+      "text": "That's all I needed, cheers.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    }
+  ],
+  "notes": "no escalation"
+}

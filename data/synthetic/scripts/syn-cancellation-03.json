@@ -1,0 +1,103 @@
+{
+  "call_id": "syn-cancellation-03",
+  "domain": "cancellation",
+  "seed": 14027,
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "Hello, this is Morgan. How can I help with your account today?",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "agent",
+      "text": "Before we start, this call may be recorded for quality and training.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": [
+        {
+          "event_type": "compliance",
+          "subtype": "recording_disclosure",
+          "polarity": "positive"
+        }
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "To make changes I'll need to verify you. What's the account email?",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": [
+        {
+          "event_type": "compliance",
+          "subtype": "identity_verification",
+          "polarity": "positive"
+        }
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "Of course, both are what you have on file.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "customer",
+      "text": "I'm moving to a different service, so I need to cancel.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "agent",
+      "text": "Sorry to hear that. Let me pull up your plan and walk you through it.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "agent",
+      "text": "I can cancel today, just so you know it stays active until the cycle ends.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "customer",
+      "text": "No, I've made up my mind, I just want it cancelled.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "customer",
+      "text": "Okay, so I won't be charged again after this, right?",
+      "pause_before": 0.0,
+      "interrupt_prev": true,
+      "event_tags": [
+        {
+          "event_type": "interruption",
+          "subtype": null,
+          "polarity": null
+        }
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "Your cancellation is confirmed for the end of the cycle. Anything else?",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "customer",
+      "text": "That's everything, appreciate it.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    }
+  ],
+  "notes": "no silence; no escalation"
+}

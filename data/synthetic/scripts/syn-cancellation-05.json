@@ -1,0 +1,109 @@
+{
+  "call_id": "syn-cancellation-05",
+  "domain": "cancellation",
+  "seed": 16027,
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "Hello, this is Morgan. How can I help with your account today?",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "agent",
+      "text": "Just so you're aware, we record these calls for training.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": [
+        {
+          "event_type": "compliance",
+          "subtype": "recording_disclosure",
+          "polarity": "positive"
+        }
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "Let me confirm a couple details. What name is the account under?",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": [
+        {
+          "event_type": "compliance",
+          "subtype": "identity_verification",
+          "polarity": "positive"
+        }
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "Sure, it's my name and the email I sign in with.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "customer",
+      "text": "I want to cancel my subscription, I'm not using it anymore.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "agent",
+      "text": "Okay, I can help with that. Let me check what's on the account.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "agent",
+      "text": "There's a loyalty discount I could apply if you'd consider staying.",
+      "pause_before": 4.2,
+      "interrupt_prev": false,
+      "event_tags": [
+        {
+          "event_type": "silence",
+          "subtype": null,
+          "polarity": null
+        }
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "How much would that discount actually be?",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "customer",
+      "text": "No, I've made up my mind, I just want it cancelled.",
+      "pause_before": 0.0,
+      "interrupt_prev": true,
+      "event_tags": [
+        {
+          "event_type": "interruption",
+          "subtype": null,
+          "polarity": null
+        }
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "Your cancellation is confirmed for the end of the cycle. Anything else?",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "customer",
+      "text": "No, that's it. Thanks.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    }
+  ],
+  "notes": "no escalation"
+}

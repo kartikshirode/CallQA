@@ -1,0 +1,232 @@
+{
+  "seed": 2026,
+  "count": 20,
+  "calls": [
+    {
+      "call_id": "syn-billing-01",
+      "domain": "billing",
+      "events": {
+        "silence": "negative",
+        "interruption": "positive",
+        "escalation": "positive",
+        "compliance": "negative"
+      },
+      "notes": "recording_disclosure omitted; no silence"
+    },
+    {
+      "call_id": "syn-billing-02",
+      "domain": "billing",
+      "events": {
+        "silence": "positive",
+        "interruption": "negative",
+        "escalation": "positive",
+        "compliance": "positive"
+      },
+      "notes": "no interruption"
+    },
+    {
+      "call_id": "syn-billing-03",
+      "domain": "billing",
+      "events": {
+        "silence": "negative",
+        "interruption": "positive",
+        "escalation": "negative",
+        "compliance": "positive"
+      },
+      "notes": "no silence; no escalation"
+    },
+    {
+      "call_id": "syn-billing-04",
+      "domain": "billing",
+      "events": {
+        "silence": "positive",
+        "interruption": "negative",
+        "escalation": "positive",
+        "compliance": "negative"
+      },
+      "notes": "identity_verification omitted; no interruption"
+    },
+    {
+      "call_id": "syn-billing-05",
+      "domain": "billing",
+      "events": {
+        "silence": "positive",
+        "interruption": "positive",
+        "escalation": "negative",
+        "compliance": "positive"
+      },
+      "notes": "no escalation"
+    },
+    {
+      "call_id": "syn-refund-01",
+      "domain": "refund",
+      "events": {
+        "silence": "negative",
+        "interruption": "positive",
+        "escalation": "positive",
+        "compliance": "negative"
+      },
+      "notes": "identity_verification omitted; no silence"
+    },
+    {
+      "call_id": "syn-refund-02",
+      "domain": "refund",
+      "events": {
+        "silence": "positive",
+        "interruption": "negative",
+        "escalation": "positive",
+        "compliance": "positive"
+      },
+      "notes": "no interruption"
+    },
+    {
+      "call_id": "syn-refund-03",
+      "domain": "refund",
+      "events": {
+        "silence": "negative",
+        "interruption": "positive",
+        "escalation": "negative",
+        "compliance": "positive"
+      },
+      "notes": "no silence; no escalation"
+    },
+    {
+      "call_id": "syn-refund-04",
+      "domain": "refund",
+      "events": {
+        "silence": "positive",
+        "interruption": "negative",
+        "escalation": "positive",
+        "compliance": "negative"
+      },
+      "notes": "recording_disclosure omitted; no interruption"
+    },
+    {
+      "call_id": "syn-refund-05",
+      "domain": "refund",
+      "events": {
+        "silence": "positive",
+        "interruption": "positive",
+        "escalation": "negative",
+        "compliance": "positive"
+      },
+      "notes": "no escalation"
+    },
+    {
+      "call_id": "syn-cancellation-01",
+      "domain": "cancellation",
+      "events": {
+        "silence": "negative",
+        "interruption": "positive",
+        "escalation": "positive",
+        "compliance": "negative"
+      },
+      "notes": "recording_disclosure omitted; no silence"
+    },
+    {
+      "call_id": "syn-cancellation-02",
+      "domain": "cancellation",
+      "events": {
+        "silence": "positive",
+        "interruption": "negative",
+        "escalation": "positive",
+        "compliance": "positive"
+      },
+      "notes": "no interruption"
+    },
+    {
+      "call_id": "syn-cancellation-03",
+      "domain": "cancellation",
+      "events": {
+        "silence": "negative",
+        "interruption": "positive",
+        "escalation": "negative",
+        "compliance": "positive"
+      },
+      "notes": "no silence; no escalation"
+    },
+    {
+      "call_id": "syn-cancellation-04",
+      "domain": "cancellation",
+      "events": {
+        "silence": "positive",
+        "interruption": "negative",
+        "escalation": "positive",
+        "compliance": "negative"
+      },
+      "notes": "identity_verification omitted; no interruption"
+    },
+    {
+      "call_id": "syn-cancellation-05",
+      "domain": "cancellation",
+      "events": {
+        "silence": "positive",
+        "interruption": "positive",
+        "escalation": "negative",
+        "compliance": "positive"
+      },
+      "notes": "no escalation"
+    },
+    {
+      "call_id": "syn-tech_support-01",
+      "domain": "tech_support",
+      "events": {
+        "silence": "negative",
+        "interruption": "positive",
+        "escalation": "positive",
+        "compliance": "negative"
+      },
+      "notes": "identity_verification omitted; no silence"
+    },
+    {
+      "call_id": "syn-tech_support-02",
+      "domain": "tech_support",
+      "events": {
+        "silence": "positive",
+        "interruption": "negative",
+        "escalation": "positive",
+        "compliance": "positive"
+      },
+      "notes": "no interruption"
+    },
+    {
+      "call_id": "syn-tech_support-03",
+      "domain": "tech_support",
+      "events": {
+        "silence": "negative",
+        "interruption": "positive",
+        "escalation": "negative",
+        "compliance": "positive"
+      },
+      "notes": "no silence; no escalation"
+    },
+    {
+      "call_id": "syn-tech_support-04",
+      "domain": "tech_support",
+      "events": {
+        "silence": "positive",
+        "interruption": "negative",
+        "escalation": "positive",
+        "compliance": "negative"
+      },
+      "notes": "recording_disclosure omitted; no interruption"
+    },
+    {
+      "call_id": "syn-tech_support-05",
+      "domain": "tech_support",
+      "events": {
+        "silence": "positive",
+        "interruption": "positive",
+        "escalation": "negative",
+        "compliance": "positive"
+      },
+      "notes": "no escalation"
+    }
+  ],
+  "negative_ratio": {
+    "silence": 0.4,
+    "interruption": 0.4,
+    "escalation": 0.4,
+    "compliance": 0.4
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "call_id": "syn-billing-04",
+  "domain": "billing",
+  "seed": 5027,
+  "turns": [
+    {
+      "speaker": "agent",
+      "text": "Thanks for calling billing support, my name is Sam. How can I help today?",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "agent",
+      "text": "Just so you know, this call is recorded for quality purposes.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": [
+        {
+          "event_type": "compliance",
+          "subtype": "recording_disclosure",
+          "polarity": "positive"
+        },
+        {
+          "event_type": "compliance",
+          "subtype": "identity_verification",
+          "polarity": "negative"
+        }
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "There's a charge on my card I don't recognize at all.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "agent",
+      "text": "Okay, let me pull up the recent charges and take a look.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "agent",
+      "text": "So one of these looks like a duplicate. I can flag it for a refund.",
+      "pause_before": 3.5,
+      "interrupt_prev": false,
+      "event_tags": [
+        {
+          "event_type": "silence",
+          "subtype": null,
+          "polarity": null
+        }
+      ]
+    },
+    {
+      "speaker": "customer",
+      "text": "I just want to make sure this doesn't happen again next month.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "customer",
+      "text": "No, that's not good enough. Get me someone who can actually fix this.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": [
+        {
+          "event_type": "escalation",
+          "subtype": null,
+          "polarity": null
+        }
+      ]
+    },
+    {
+      "speaker": "agent",
+      "text": "That's fair. I'll escalate this to a manager so we can sort it properly.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "agent",
+      "text": "I've applied the refund and you'll see it in three to five days. Anything else?",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    },
+    {
+      "speaker": "customer",
+      "text": "No, that's everything. Thanks for the help.",
+      "pause_before": 0.0,
+      "interrupt_prev": false,
+      "event_tags": []
+    }
+  ],
+  "notes": "identity_verification omitted; no interruption"
+}
