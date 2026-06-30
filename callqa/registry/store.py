@@ -7,6 +7,7 @@ the PLAN.md rule: do not process files marked private or unknown source.
 """
 from __future__ import annotations
 
+import os
 from pathlib import Path
 from typing import Optional, Union
 
@@ -83,4 +84,9 @@ class Registry:
     def _save(self) -> None:
         self.path.parent.mkdir(parents=True, exist_ok=True)
         lines = [r.model_dump_json() for r in self._records.values()]
-        self.path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+        # Write to a temp file and rename so a crash mid-write can never leave
+        # the source-of-truth registry truncated. os.replace is atomic on the
+        # same filesystem.
+        tmp = self.path.with_suffix(self.path.suffix + ".tmp")
+        tmp.write_text("\n".join(lines) + "\n", encoding="utf-8")
+        os.replace(tmp, self.path)
