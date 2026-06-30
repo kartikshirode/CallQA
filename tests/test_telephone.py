@@ -1,7 +1,7 @@
-"""Tests for telephone-band degradation.
+"""Week 1 dataset - telephone-band degradation.
 
-These use plain sine tones, not Kokoro and not the real wavs, so the suite
-stays fast and has no external dependencies.
+Plain sine tones stand in for Kokoro and the real wavs, so the suite stays
+fast and offline.
 """
 import numpy as np
 
@@ -18,54 +18,36 @@ def rms(x):
     return float(np.sqrt(np.mean(np.square(x.astype(np.float64)))))
 
 
-def test_constant_is_8000():
+def test_output_is_8000_hz_and_preserves_duration():
+    out = degrade_to_telephone(sine(1000, 1.0, 24000), 24000)
     assert TELEPHONE_SR == 8000
-
-
-def test_output_sample_rate_is_8000():
-    src = sine(1000, 1.0, 24000)
-    out = degrade_to_telephone(src, 24000)
-    # The function returns the waveform; the contract is 8000 Hz output, so the
-    # sample count for a 1 second tone should be about 8000.
+    # A 1 second tone should land near 8000 samples.
     assert abs(len(out) - 8000) <= 80
-
-
-def test_duration_preserved_within_tolerance():
-    seconds = 2.0
-    src = sine(440, seconds, 24000)
-    out = degrade_to_telephone(src, 24000)
-    out_seconds = len(out) / TELEPHONE_SR
-    assert abs(out_seconds - seconds) <= 0.05
+    longer = degrade_to_telephone(sine(440, 2.0, 24000), 24000)
+    assert abs(len(longer) / TELEPHONE_SR - 2.0) <= 0.05
 
 
 def test_bandpass_attenuates_5khz_relative_to_1khz():
     low = degrade_to_telephone(sine(1000, 1.0, 24000), 24000)
     high = degrade_to_telephone(sine(5000, 1.0, 24000), 24000)
-    # A 5 kHz tone sits outside the 300-3400 Hz passband and should come out
-    # much quieter than a 1 kHz tone that sits inside it.
+    # 5 kHz sits outside the 300-3400 Hz passband, so it comes out much quieter.
     assert rms(high) < 0.5 * rms(low)
 
 
-def test_same_seed_is_identical():
+def test_same_seed_is_identical_different_seed_differs():
     src = sine(600, 1.0, 24000)
-    a = degrade_to_telephone(src, 24000, seed=7)
-    b = degrade_to_telephone(src, 24000, seed=7)
-    assert np.array_equal(a, b)
+    assert np.array_equal(
+        degrade_to_telephone(src, 24000, seed=7),
+        degrade_to_telephone(src, 24000, seed=7),
+    )
+    assert not np.array_equal(
+        degrade_to_telephone(src, 24000, seed=1),
+        degrade_to_telephone(src, 24000, seed=2),
+    )
 
 
-def test_different_seed_differs():
-    src = sine(600, 1.0, 24000)
-    a = degrade_to_telephone(src, 24000, seed=1)
-    b = degrade_to_telephone(src, 24000, seed=2)
-    assert not np.array_equal(a, b)
-
-
-def test_output_is_float32():
-    out = degrade_to_telephone(sine(800, 0.5, 24000), 24000)
-    assert out.dtype == np.float32
-
-
-def test_output_within_unit_range():
-    # Push a loud input through and confirm the limiter keeps it bounded.
+def test_output_is_bounded_float32():
+    # Push a loud input through and confirm the limiter keeps it in range.
     out = degrade_to_telephone(sine(800, 1.0, 24000, amplitude=0.99), 24000)
+    assert out.dtype == np.float32
     assert float(np.max(np.abs(out))) <= 1.0
