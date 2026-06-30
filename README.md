@@ -4,7 +4,7 @@ Compare transcription, diarization, event detection, and summaries for call QA p
 
 ## Project status
 
-Dataset phase, Phase 0 scaffold. The audio registry and an environment smoke test are in place. ASR, diarization, event detection, scorecards, and the dashboard come next.
+Dataset phase complete. Both tiers are built, verified, and registered: 20 synthetic calls with full event ground truth and 40 real HarperValley calls for WER and diarization. See `docs/DATASET_CARD.md`. Still open: the diarization voice-diversity gate (needs a HuggingFace token for pyannote). ASR scoring, event detection, scorecards, and the dashboard come next.
 
 ## Dataset strategy
 
@@ -15,15 +15,19 @@ Three tiers. The core is synthetic: short support calls generated locally with K
 ```
 callqa/
   registry/        audio registry: pydantic schema + JSONL store
+  synth/           synthetic calls: script generator, banks, TTS, assembler
+  audio/           telephone-band degradation
+  datasets/        HarperValley loader and consistency checks
 data/
-  registry/        registry.jsonl lives here
-  synthetic/       generated Kokoro calls
-  harpervalley/    real-anchor subset
-scripts/
-  env_check.py     environment smoke test
-tests/             pytest suite for the registry
+  registry/        registry.jsonl, the dataset index
+  synthetic/       scripts, labels, and generated audio
+  harpervalley/    subset manifest (raw audio is refetched, not versioned)
+scripts/           env check, build, degrade, fetch, verify, stats
+tests/             pytest suite
+docs/
+  DATASET_CARD.md  what the data is, where labels come from, limits
+  superpowers/specs/2026-06-30-callqa-dataset-design.md   dataset design
 PLAN.md            project thesis and MVP schema
-docs/superpowers/specs/2026-06-30-callqa-dataset-design.md   dataset design
 ```
 
 ## Getting started
