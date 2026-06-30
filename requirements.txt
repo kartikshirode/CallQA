@@ -15,9 +15,12 @@ faster-whisper>=1.0
 jiwer>=3.0
 
 # --- diarization ---
-# torch must match your CUDA build; see https://pytorch.org for the right wheel.
-torch>=2.2
-pyannote.audio>=3.1
+# Pin pyannote to 3.x: 4.x pulls a CPU torch and breaks CUDA. torch and
+# torchaudio must be the cu124 2.6.0 build installed from the pytorch index,
+# not from PyPI. See https://pytorch.org for the right wheel.
+torch==2.6.0
+torchaudio==2.6.0
+pyannote.audio==3.3.2
 
 # --- TTS (synthetic call generation) ---
 kokoro>=0.3
