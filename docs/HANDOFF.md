@@ -1,10 +1,12 @@
 # Handoff: start here next session
 
-This is the context a fresh session needs to pick up CallQA without re-deriving anything. Read this, then `PLAN.md` for the full roadmap and `docs/DATASET_CARD.md` for the data.
+This is the context a fresh session needs to pick up CallQA without re-deriving anything. Read this, then `docs/REPO_MAP.md` for the structure, `PLAN.md` for the full roadmap, and `docs/DATASET_CARD.md` for the data.
 
 ## Current state (end of Week 1)
 
-Dataset phase is complete. Both tiers built, verified, registered. 60 calls in `data/registry/registry.jsonl` (20 synthetic, 40 HarperValley). 108 tests passing. Next up is Week 2, the ASR and WER benchmark.
+Dataset phase is complete and audited GREEN. Both tiers built, verified, registered. 60 calls in `data/registry/registry.jsonl` (20 synthetic, 40 HarperValley). 77 tests passing. Next up is Week 2, the ASR and WER benchmark.
+
+A four-phase swarm audit ran at the end of Week 1. It found five hardening issues, none in the shipped data, all fixed and validated. Full writeup in `docs/progress/week1-audit.md`. The fixes: atomic registry write, scoped torch.load override, an assembler timeline clamp, a defensive HarperValley parser, and a real sidecar cross-check in verify.
 
 ## Machine and environment
 
@@ -19,7 +21,7 @@ Dataset phase is complete. Both tiers built, verified, registered. 60 calls in `
 ## Three traps that will waste time if forgotten
 
 1. Installing kokoro or pyannote can drag numpy or torch to a bad version. After any install, run `python -c "import torch; print(torch.cuda.is_available())"`. If False, reinstall the cu124 torch: `pip install torch==2.6.0+cu124 torchaudio==2.6.0+cu124 --index-url https://download.pytorch.org/whl/cu124`.
-2. pyannote on torch 2.6 needs a torch.load patch (weights_only forced False). It already lives in `callqa/diarization/pyannote_adapter.py`. Reuse that module, do not load pyannote raw.
+2. pyannote on torch 2.6 needs weights_only forced False to load the checkpoint. That override lives in `callqa/diarization/pyannote_adapter.py`, scoped to a context manager around the load (not a global patch). Reuse that module, do not load pyannote raw.
 3. HarperValley human transcripts contain bracketed non-speech tokens like noise and unk. The WER normalizer must strip them or WER reads high for the wrong reason.
 
 ## Secrets
@@ -65,3 +67,5 @@ The synthetic build is deterministic from the seed, so it reproduces byte for by
 - Commits are split into small logical chunks, no AI or co-author trailers.
 - No em dashes or en dashes in any file. The dataset tests even assert the banks stay clean.
 - Verify before claiming done: run pytest and the actual scripts, do not assume.
+- Tests are grouped by stage, not one file per module. Each week adds its own stage file under `tests/`. Throwaway tests written to check a change stay in the scratch dir and are deleted once green, they do not get committed. See `tests/README.md`.
+- New structural orientation lives in `docs/REPO_MAP.md`. Update it when modules move.
