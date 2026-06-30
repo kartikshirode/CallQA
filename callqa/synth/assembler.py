@@ -86,19 +86,27 @@ def assemble_call(
             # Start early, before the previous turn ended.
             overlap = min(_samples(overlap_seconds, sample_rate), prev_end)
             start = max(prev_end - overlap, 0)
-            if start < prev_end:
-                interrupt_spans.append((start, prev_end))
+            end = start + length
+            # The overlap only lasts while both clips actually play. Cap the
+            # span at whichever clip ends first so a clip shorter than the
+            # overlap window cannot label silence as an interruption.
+            span_end = min(prev_end, end)
+            if start < span_end:
+                interrupt_spans.append((start, span_end))
         else:
             pause = _samples(turn.pause_before, sample_rate)
             start = cursor + pause
+            end = start + length
             if turn.pause_before >= SILENCE_PAUSE_THRESHOLD and pause > 0:
                 silence_spans.append((cursor, cursor + pause))
 
-        end = start + length
         starts.append(start)
         ends.append(end)
-        cursor = end
-        prev_end = end
+        # Never let the timeline walk backward, even if an interrupting clip is
+        # shorter than the overlap. Otherwise the next turn would be placed
+        # inside the previous clip's audio.
+        cursor = max(cursor, end)
+        prev_end = max(prev_end, end)
 
     total = max(ends) if ends else 0
 
