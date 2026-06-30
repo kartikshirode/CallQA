@@ -40,7 +40,9 @@ Result: every event label is generated mechanically, with exact timestamps, befo
 
 ## Telephone-band realism (do not skip)
 
-After assembly, each synthetic call passes through telephone-band degradation: downsample to 8kHz, mu-law companding, light line and background noise, occasional codec artifacts. Without this step Whisper would score near-perfect WER and diarization would be trivial, making both numbers meaningless. This step is what keeps the synthetic ASR and DER results worth reporting.
+After assembly, each synthetic call passes through telephone-band degradation: downsample to 8kHz, mu-law companding, light line and background noise, occasional codec artifacts. This makes the audio look and sound like a real phone channel, which matters most for diarization realism and for the project reading as contact-center work rather than studio TTS.
+
+A measured caveat, found during the build: even after degradation, Whisper still scores very low WER on the synthetic calls (roughly 0 to 4%, with the small errors coming mostly from overlapping interruption regions). Clear TTS speech is just easy to transcribe. So synthetic WER is not a real ASR stress test, and we do not pretend it is. Real WER and DER credibility comes from the HarperValley anchor. The synthetic tier owns the event labels and serves as a clean-pipeline check where ASR error does not muddy the event scoring.
 
 ## Negative-class policy
 
