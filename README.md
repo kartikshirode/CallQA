@@ -4,7 +4,7 @@ Compare transcription, diarization, event detection, and summaries for call QA p
 
 ## Project status
 
-Dataset phase complete. Both tiers are built, verified, and registered: 20 synthetic calls with full event ground truth and 40 real HarperValley calls for WER and diarization. See `docs/DATASET_CARD.md`. Still open: the diarization voice-diversity gate (needs a HuggingFace token for pyannote). ASR scoring, event detection, scorecards, and the dashboard come next.
+Dataset phase complete. Both tiers are built, verified, and registered: 20 synthetic calls with full event ground truth and 40 real HarperValley calls for WER and diarization. See `docs/DATASET_CARD.md`. The diarization voice-diversity gate passed (pyannote on GPU, synthetic calls split cleanly into two speakers). ASR scoring, event detection, scorecards, and the dashboard come next.
 
 ## Dataset strategy
 
