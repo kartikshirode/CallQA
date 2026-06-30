@@ -4,7 +4,8 @@
 
 # --- core ---
 pydantic>=2.9,<3
-numpy>=1.26,<2
+# numpy must stay <2.4 because numba and librosa do not support the newer ABI yet.
+numpy>=1.26,<2.4
 soundfile>=0.12
 librosa>=0.10
 pydub>=0.25
