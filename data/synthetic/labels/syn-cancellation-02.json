@@ -1,0 +1,100 @@
+{
+  "speaker_segments": [
+    {
+      "speaker": "agent",
+      "start": 0.0,
+      "end": 4.5
+    },
+    {
+      "speaker": "agent",
+      "start": 4.5,
+      "end": 8.725
+    },
+    {
+      "speaker": "agent",
+      "start": 8.725,
+      "end": 12.6
+    },
+    {
+      "speaker": "customer",
+      "start": 12.6,
+      "end": 16.275
+    },
+    {
+      "speaker": "customer",
+      "start": 16.275,
+      "end": 19.275
+    },
+    {
+      "speaker": "agent",
+      "start": 19.275,
+      "end": 23.725
+    },
+    {
+      "speaker": "agent",
+      "start": 27.725,
+      "end": 33.35
+    },
+    {
+      "speaker": "customer",
+      "start": 33.35,
+      "end": 36.75
+    },
+    {
+      "speaker": "customer",
+      "start": 36.75,
+      "end": 40.6
+    },
+    {
+      "speaker": "agent",
+      "start": 40.6,
+      "end": 45.725
+    },
+    {
+      "speaker": "agent",
+      "start": 45.725,
+      "end": 50.85
+    },
+    {
+      "speaker": "customer",
+      "start": 50.85,
+      "end": 53.3
+    }
+  ],
+  "event_labels": [
+    {
+      "event_type": "silence",
+      "start": 23.725,
+      "end": 27.725,
+      "metadata": null
+    },
+    {
+      "event_type": "compliance",
+      "start": 4.5,
+      "end": 8.725,
+      "metadata": {
+        "subtype": "recording_disclosure",
+        "polarity": "positive"
+      }
+    },
+    {
+      "event_type": "compliance",
+      "start": 8.725,
+      "end": 12.6,
+      "metadata": {
+        "subtype": "identity_verification",
+        "polarity": "positive"
+      }
+    },
+    {
+      "event_type": "escalation",
+      "start": 36.75,
+      "end": 40.6,
+      "metadata": null
+    }
+  ],
+  "duration_seconds": 53.3,
+  "reference_transcript": "Hi, you've reached the cancellations team. What can I do for you? Just so you're aware, we record these calls for training. Can you confirm the name and email on the account first? Yeah, the email's my usual one and the name matches. I'd like to close my account effective today. Sorry to hear that. Let me pull up your plan and walk you through it. I can cancel today, just so you know it stays active until the cycle ends. Okay, so I won't be charged again after this, right? This is exactly why I'm leaving. Put someone senior on. I'm sorry, that wasn't my intent. Let me get a senior agent for you. Your cancellation is confirmed for the end of the cycle. Anything else? That's everything, appreciate it.",
+  "voice_pair": "cross",
+  "domain": "cancellation"
+}

@@ -1,0 +1,95 @@
+{
+  "speaker_segments": [
+    {
+      "speaker": "agent",
+      "start": 0.0,
+      "end": 4.4
+    },
+    {
+      "speaker": "agent",
+      "start": 4.4,
+      "end": 9.725
+    },
+    {
+      "speaker": "agent",
+      "start": 9.725,
+      "end": 14.45
+    },
+    {
+      "speaker": "customer",
+      "start": 14.45,
+      "end": 18.375
+    },
+    {
+      "speaker": "customer",
+      "start": 18.375,
+      "end": 21.95
+    },
+    {
+      "speaker": "agent",
+      "start": 21.95,
+      "end": 26.075
+    },
+    {
+      "speaker": "agent",
+      "start": 29.475,
+      "end": 34.45
+    },
+    {
+      "speaker": "customer",
+      "start": 34.45,
+      "end": 37.225
+    },
+    {
+      "speaker": "customer",
+      "start": 36.625,
+      "end": 39.325
+    },
+    {
+      "speaker": "agent",
+      "start": 39.325,
+      "end": 44.775
+    },
+    {
+      "speaker": "customer",
+      "start": 44.775,
+      "end": 46.825
+    }
+  ],
+  "event_labels": [
+    {
+      "event_type": "silence",
+      "start": 26.075,
+      "end": 29.475,
+      "metadata": null
+    },
+    {
+      "event_type": "interruption",
+      "start": 36.625,
+      "end": 37.225,
+      "metadata": null
+    },
+    {
+      "event_type": "compliance",
+      "start": 4.4,
+      "end": 9.725,
+      "metadata": {
+        "subtype": "recording_disclosure",
+        "polarity": "positive"
+      }
+    },
+    {
+      "event_type": "compliance",
+      "start": 9.725,
+      "end": 14.45,
+      "metadata": {
+        "subtype": "identity_verification",
+        "polarity": "positive"
+      }
+    }
+  ],
+  "duration_seconds": 46.825,
+  "reference_transcript": "Hi, refunds team here. What can I sort out for you today? Before we get into it, this call may be recorded for quality and training. Can I grab the name and order email so I can find the order? Of course, both the name and email are what you've got on file. The product showed up broken and I want my money back. Understood. Give me a moment to look at what happened here. Okay, I'll process the full amount back to your original payment method. So when will it actually land in my account? Okay, as long as it's the full amount. Refund's processed, you'll see it within a few business days. Anything else? That's all I needed, cheers.",
+  "voice_pair": "cross",
+  "domain": "refund"
+}

@@ -1,0 +1,89 @@
+{
+  "speaker_segments": [
+    {
+      "speaker": "agent",
+      "start": 0.0,
+      "end": 4.425
+    },
+    {
+      "speaker": "agent",
+      "start": 4.425,
+      "end": 9.35
+    },
+    {
+      "speaker": "agent",
+      "start": 9.35,
+      "end": 14.175
+    },
+    {
+      "speaker": "customer",
+      "start": 14.175,
+      "end": 16.9
+    },
+    {
+      "speaker": "customer",
+      "start": 16.9,
+      "end": 20.55
+    },
+    {
+      "speaker": "agent",
+      "start": 20.55,
+      "end": 25.0
+    },
+    {
+      "speaker": "agent",
+      "start": 25.0,
+      "end": 30.625
+    },
+    {
+      "speaker": "customer",
+      "start": 30.625,
+      "end": 34.125
+    },
+    {
+      "speaker": "customer",
+      "start": 33.525,
+      "end": 36.925
+    },
+    {
+      "speaker": "agent",
+      "start": 36.925,
+      "end": 42.05
+    },
+    {
+      "speaker": "customer",
+      "start": 42.05,
+      "end": 44.5
+    }
+  ],
+  "event_labels": [
+    {
+      "event_type": "interruption",
+      "start": 33.525,
+      "end": 34.125,
+      "metadata": null
+    },
+    {
+      "event_type": "compliance",
+      "start": 4.425,
+      "end": 9.35,
+      "metadata": {
+        "subtype": "recording_disclosure",
+        "polarity": "positive"
+      }
+    },
+    {
+      "event_type": "compliance",
+      "start": 9.35,
+      "end": 14.175,
+      "metadata": {
+        "subtype": "identity_verification",
+        "polarity": "positive"
+      }
+    }
+  ],
+  "duration_seconds": 44.5,
+  "reference_transcript": "Hello, this is Morgan. How can I help with your account today? Before we start, this call may be recorded for quality and training. To make changes I'll need to verify you. What's the account email? Of course, both are what you have on file. I'm moving to a different service, so I need to cancel. Sorry to hear that. Let me pull up your plan and walk you through it. I can cancel today, just so you know it stays active until the cycle ends. No, I've made up my mind, I just want it cancelled. Okay, so I won't be charged again after this, right? Your cancellation is confirmed for the end of the cycle. Anything else? That's everything, appreciate it.",
+  "voice_pair": "cross",
+  "domain": "cancellation"
+}

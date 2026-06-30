@@ -1,0 +1,100 @@
+{
+  "speaker_segments": [
+    {
+      "speaker": "agent",
+      "start": 0.0,
+      "end": 4.15
+    },
+    {
+      "speaker": "agent",
+      "start": 4.15,
+      "end": 9.425
+    },
+    {
+      "speaker": "agent",
+      "start": 9.425,
+      "end": 13.725
+    },
+    {
+      "speaker": "customer",
+      "start": 13.725,
+      "end": 16.475
+    },
+    {
+      "speaker": "customer",
+      "start": 16.475,
+      "end": 20.0
+    },
+    {
+      "speaker": "agent",
+      "start": 20.0,
+      "end": 24.05
+    },
+    {
+      "speaker": "agent",
+      "start": 26.75,
+      "end": 31.675
+    },
+    {
+      "speaker": "customer",
+      "start": 31.675,
+      "end": 34.175
+    },
+    {
+      "speaker": "customer",
+      "start": 34.175,
+      "end": 37.85
+    },
+    {
+      "speaker": "agent",
+      "start": 37.85,
+      "end": 42.575
+    },
+    {
+      "speaker": "agent",
+      "start": 42.575,
+      "end": 46.25
+    },
+    {
+      "speaker": "customer",
+      "start": 46.25,
+      "end": 49.1
+    }
+  ],
+  "event_labels": [
+    {
+      "event_type": "silence",
+      "start": 24.05,
+      "end": 26.75,
+      "metadata": null
+    },
+    {
+      "event_type": "compliance",
+      "start": 4.15,
+      "end": 9.425,
+      "metadata": {
+        "subtype": "recording_disclosure",
+        "polarity": "positive"
+      }
+    },
+    {
+      "event_type": "compliance",
+      "start": 9.425,
+      "end": 13.725,
+      "metadata": {
+        "subtype": "identity_verification",
+        "polarity": "positive"
+      }
+    },
+    {
+      "event_type": "escalation",
+      "start": 34.175,
+      "end": 37.85,
+      "metadata": null
+    }
+  ],
+  "duration_seconds": 49.1,
+  "reference_transcript": "Hi, technical support here. How can I help you today? Before we troubleshoot, this call may be recorded for quality and training. To look up your setup, what's the email you registered with? Of course, both are what you've got on file. The app won't load at all, it just sits on a blank screen. Got it. First, can you tell me what you've already tried? I'm going to send a password reset link, watch for it in a moment. Alright, it's coming back up I think. This isn't working. I want to speak to a supervisor. I hear you, this has taken too long. Let me bring in a specialist. You're back up and running. Thanks for bearing with me. No, that's it. Thanks for sticking with it.",
+  "voice_pair": "cross",
+  "domain": "tech_support"
+}

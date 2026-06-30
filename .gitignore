@@ -8,10 +8,10 @@ venv/
 env/
 
 # Audio and model artifacts (regenerated, not versioned)
-data/synthetic/*.wav
-data/synthetic/*.flac
-data/harpervalley/*.wav
-data/harpervalley/*.flac
+data/synthetic/**/*.wav
+data/synthetic/**/*.flac
+data/harpervalley/**/*.wav
+data/harpervalley/**/*.flac
 *.ckpt
 *.pt
 

@@ -1,0 +1,100 @@
+{
+  "speaker_segments": [
+    {
+      "speaker": "agent",
+      "start": 0.0,
+      "end": 5.2
+    },
+    {
+      "speaker": "agent",
+      "start": 5.2,
+      "end": 9.875
+    },
+    {
+      "speaker": "customer",
+      "start": 9.875,
+      "end": 14.3
+    },
+    {
+      "speaker": "customer",
+      "start": 14.3,
+      "end": 18.5
+    },
+    {
+      "speaker": "agent",
+      "start": 18.5,
+      "end": 23.0
+    },
+    {
+      "speaker": "agent",
+      "start": 23.0,
+      "end": 27.925
+    },
+    {
+      "speaker": "customer",
+      "start": 27.925,
+      "end": 30.75
+    },
+    {
+      "speaker": "customer",
+      "start": 30.15,
+      "end": 33.6
+    },
+    {
+      "speaker": "customer",
+      "start": 33.6,
+      "end": 37.575
+    },
+    {
+      "speaker": "agent",
+      "start": 37.575,
+      "end": 42.7
+    },
+    {
+      "speaker": "agent",
+      "start": 42.7,
+      "end": 48.05
+    },
+    {
+      "speaker": "customer",
+      "start": 48.05,
+      "end": 50.1
+    }
+  ],
+  "event_labels": [
+    {
+      "event_type": "interruption",
+      "start": 30.15,
+      "end": 30.75,
+      "metadata": null
+    },
+    {
+      "event_type": "compliance",
+      "start": 0.0,
+      "end": 5.2,
+      "metadata": {
+        "subtype": "recording_disclosure",
+        "polarity": "negative"
+      }
+    },
+    {
+      "event_type": "compliance",
+      "start": 5.2,
+      "end": 9.875,
+      "metadata": {
+        "subtype": "identity_verification",
+        "polarity": "positive"
+      }
+    },
+    {
+      "event_type": "escalation",
+      "start": 33.6,
+      "end": 37.575,
+      "metadata": null
+    }
+  ],
+  "duration_seconds": 50.1,
+  "reference_transcript": "Thanks for calling billing support, my name is Sam. How can I help today? To pull up your account, could you give me the billing email please? Sure, it's under my name and the usual email I sign in with. I got charged twice this month and I only have one subscription. I hear you. Let me see what's posted on the account this cycle. So one of these looks like a duplicate. I can flag it for a refund. So how long is it going to take to fix? I just want to make sure this doesn't happen again next month. This is the third time I've called. Put me through to a manager. That's fair. I'll escalate this to a manager so we can sort it properly. I've applied the refund and you'll see it in three to five days. Anything else? That's all, appreciate it.",
+  "voice_pair": "cross",
+  "domain": "billing"
+}

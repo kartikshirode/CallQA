@@ -1,0 +1,100 @@
+{
+  "speaker_segments": [
+    {
+      "speaker": "agent",
+      "start": 0.0,
+      "end": 5.2
+    },
+    {
+      "speaker": "agent",
+      "start": 5.2,
+      "end": 9.675
+    },
+    {
+      "speaker": "agent",
+      "start": 9.675,
+      "end": 14.35
+    },
+    {
+      "speaker": "customer",
+      "start": 14.35,
+      "end": 18.775
+    },
+    {
+      "speaker": "customer",
+      "start": 18.775,
+      "end": 22.975
+    },
+    {
+      "speaker": "agent",
+      "start": 22.975,
+      "end": 27.05
+    },
+    {
+      "speaker": "agent",
+      "start": 30.45,
+      "end": 35.375
+    },
+    {
+      "speaker": "customer",
+      "start": 35.375,
+      "end": 38.225
+    },
+    {
+      "speaker": "customer",
+      "start": 38.225,
+      "end": 42.825
+    },
+    {
+      "speaker": "agent",
+      "start": 42.825,
+      "end": 48.025
+    },
+    {
+      "speaker": "agent",
+      "start": 48.025,
+      "end": 52.075
+    },
+    {
+      "speaker": "customer",
+      "start": 52.075,
+      "end": 54.1
+    }
+  ],
+  "event_labels": [
+    {
+      "event_type": "silence",
+      "start": 27.05,
+      "end": 30.45,
+      "metadata": null
+    },
+    {
+      "event_type": "compliance",
+      "start": 5.2,
+      "end": 9.675,
+      "metadata": {
+        "subtype": "recording_disclosure",
+        "polarity": "positive"
+      }
+    },
+    {
+      "event_type": "compliance",
+      "start": 9.675,
+      "end": 14.35,
+      "metadata": {
+        "subtype": "identity_verification",
+        "polarity": "positive"
+      }
+    },
+    {
+      "event_type": "escalation",
+      "start": 38.225,
+      "end": 42.825,
+      "metadata": null
+    }
+  ],
+  "duration_seconds": 54.1,
+  "reference_transcript": "Thanks for calling billing support, my name is Sam. How can I help today? Heads up, we do record these calls for training and quality. To pull up your account, could you give me the billing email please? Sure, it's under my name and the usual email I sign in with. I got charged twice this month and I only have one subscription. Okay, let me pull up the recent charges and take a look. So one of these looks like a duplicate. I can flag it for a refund. Right, that's exactly what I'm talking about. I'm done going in circles. I want to speak to a supervisor right now. I'm sorry it's gotten to this point. Let me get a senior agent on the line. You're all set. Thanks for your patience, and have a good one. Great, thank you. Bye.",
+  "voice_pair": "cross",
+  "domain": "billing"
+}

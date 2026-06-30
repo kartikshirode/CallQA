@@ -1,0 +1,95 @@
+{
+  "speaker_segments": [
+    {
+      "speaker": "agent",
+      "start": 0.0,
+      "end": 4.65
+    },
+    {
+      "speaker": "agent",
+      "start": 4.65,
+      "end": 8.35
+    },
+    {
+      "speaker": "agent",
+      "start": 8.35,
+      "end": 12.7
+    },
+    {
+      "speaker": "customer",
+      "start": 12.7,
+      "end": 16.0
+    },
+    {
+      "speaker": "customer",
+      "start": 16.0,
+      "end": 19.525
+    },
+    {
+      "speaker": "agent",
+      "start": 19.525,
+      "end": 22.9
+    },
+    {
+      "speaker": "agent",
+      "start": 26.3,
+      "end": 31.675
+    },
+    {
+      "speaker": "customer",
+      "start": 31.675,
+      "end": 34.025
+    },
+    {
+      "speaker": "customer",
+      "start": 33.425,
+      "end": 35.925
+    },
+    {
+      "speaker": "agent",
+      "start": 35.925,
+      "end": 40.45
+    },
+    {
+      "speaker": "customer",
+      "start": 40.45,
+      "end": 43.3
+    }
+  ],
+  "event_labels": [
+    {
+      "event_type": "silence",
+      "start": 22.9,
+      "end": 26.3,
+      "metadata": null
+    },
+    {
+      "event_type": "interruption",
+      "start": 33.425,
+      "end": 34.025,
+      "metadata": null
+    },
+    {
+      "event_type": "compliance",
+      "start": 4.65,
+      "end": 8.35,
+      "metadata": {
+        "subtype": "recording_disclosure",
+        "polarity": "positive"
+      }
+    },
+    {
+      "event_type": "compliance",
+      "start": 8.35,
+      "end": 12.7,
+      "metadata": {
+        "subtype": "identity_verification",
+        "polarity": "positive"
+      }
+    }
+  ],
+  "duration_seconds": 43.3,
+  "reference_transcript": "Thanks for calling tech support, this is Taylor. What's going on? Heads up, we record support calls for training. Let me verify you first. What name is the account under? Sure, it's my name with the email I always use. The app won't load at all, it just sits on a blank screen. Okay, let me walk you through a couple of checks. Let's clear the app cache and reopen it, that fixes most blank screens. Still the same, nothing changed. Alright, it's coming back up I think. Glad it's working now. Is there anything else I can help with? No, that's it. Thanks for sticking with it.",
+  "voice_pair": "cross",
+  "domain": "tech_support"
+}

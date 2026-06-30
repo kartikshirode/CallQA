@@ -1,0 +1,89 @@
+{
+  "speaker_segments": [
+    {
+      "speaker": "agent",
+      "start": 0.0,
+      "end": 4.65
+    },
+    {
+      "speaker": "agent",
+      "start": 4.65,
+      "end": 9.925
+    },
+    {
+      "speaker": "agent",
+      "start": 9.925,
+      "end": 14.275
+    },
+    {
+      "speaker": "customer",
+      "start": 14.275,
+      "end": 18.875
+    },
+    {
+      "speaker": "customer",
+      "start": 18.875,
+      "end": 22.85
+    },
+    {
+      "speaker": "agent",
+      "start": 22.85,
+      "end": 26.9
+    },
+    {
+      "speaker": "agent",
+      "start": 26.9,
+      "end": 31.525
+    },
+    {
+      "speaker": "customer",
+      "start": 31.525,
+      "end": 34.05
+    },
+    {
+      "speaker": "customer",
+      "start": 33.45,
+      "end": 35.975
+    },
+    {
+      "speaker": "agent",
+      "start": 35.975,
+      "end": 41.775
+    },
+    {
+      "speaker": "customer",
+      "start": 41.775,
+      "end": 44.075
+    }
+  ],
+  "event_labels": [
+    {
+      "event_type": "interruption",
+      "start": 33.45,
+      "end": 34.05,
+      "metadata": null
+    },
+    {
+      "event_type": "compliance",
+      "start": 4.65,
+      "end": 9.925,
+      "metadata": {
+        "subtype": "recording_disclosure",
+        "polarity": "positive"
+      }
+    },
+    {
+      "event_type": "compliance",
+      "start": 9.925,
+      "end": 14.275,
+      "metadata": {
+        "subtype": "identity_verification",
+        "polarity": "positive"
+      }
+    }
+  ],
+  "duration_seconds": 44.075,
+  "reference_transcript": "Thanks for calling tech support, this is Taylor. What's going on? Before we troubleshoot, this call may be recorded for quality and training. Let me verify you first. What name is the account under? Yeah, the registered email is my usual one and the name matches. I can't log in, it says my password is wrong but it isn't. Got it. First, can you tell me what you've already tried? Try restarting the router and give it about a minute to come back. Okay, hang on, I'm doing that now. Okay, hang on, I'm doing that now. Looks like that fixed it. I'll note the case in case it returns. Anything else? That's all, appreciate the help.",
+  "voice_pair": "cross",
+  "domain": "tech_support"
+}

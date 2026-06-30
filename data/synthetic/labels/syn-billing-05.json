@@ -1,0 +1,95 @@
+{
+  "speaker_segments": [
+    {
+      "speaker": "agent",
+      "start": 0.0,
+      "end": 4.55
+    },
+    {
+      "speaker": "agent",
+      "start": 4.55,
+      "end": 9.025
+    },
+    {
+      "speaker": "agent",
+      "start": 9.025,
+      "end": 14.525
+    },
+    {
+      "speaker": "customer",
+      "start": 14.525,
+      "end": 17.925
+    },
+    {
+      "speaker": "customer",
+      "start": 17.925,
+      "end": 22.125
+    },
+    {
+      "speaker": "agent",
+      "start": 22.125,
+      "end": 26.225
+    },
+    {
+      "speaker": "agent",
+      "start": 30.025,
+      "end": 34.95
+    },
+    {
+      "speaker": "customer",
+      "start": 34.95,
+      "end": 37.8
+    },
+    {
+      "speaker": "customer",
+      "start": 37.2,
+      "end": 40.05
+    },
+    {
+      "speaker": "agent",
+      "start": 40.05,
+      "end": 44.1
+    },
+    {
+      "speaker": "customer",
+      "start": 44.1,
+      "end": 47.075
+    }
+  ],
+  "event_labels": [
+    {
+      "event_type": "silence",
+      "start": 26.225,
+      "end": 30.025,
+      "metadata": null
+    },
+    {
+      "event_type": "interruption",
+      "start": 37.2,
+      "end": 37.8,
+      "metadata": null
+    },
+    {
+      "event_type": "compliance",
+      "start": 4.55,
+      "end": 9.025,
+      "metadata": {
+        "subtype": "recording_disclosure",
+        "polarity": "positive"
+      }
+    },
+    {
+      "event_type": "compliance",
+      "start": 9.025,
+      "end": 14.525,
+      "metadata": {
+        "subtype": "identity_verification",
+        "polarity": "positive"
+      }
+    }
+  ],
+  "duration_seconds": 47.075,
+  "reference_transcript": "Billing support, this is Alex speaking. How can I help you out? Heads up, we do record these calls for training and quality. I'll need to verify a couple of details first. What's the name on the account? Of course, name and email are both the ones on file. I got charged twice this month and I only have one subscription. Got it. Give me a second to check the billing history on this. So one of these looks like a duplicate. I can flag it for a refund. Right, that's exactly what I'm talking about. Right, that's exactly what I'm talking about. You're all set. Thanks for your patience, and have a good one. No, that's everything. Thanks for the help.",
+  "voice_pair": "cross",
+  "domain": "billing"
+}

@@ -1,0 +1,100 @@
+{
+  "speaker_segments": [
+    {
+      "speaker": "agent",
+      "start": 0.0,
+      "end": 4.5
+    },
+    {
+      "speaker": "agent",
+      "start": 4.5,
+      "end": 9.325
+    },
+    {
+      "speaker": "customer",
+      "start": 9.325,
+      "end": 13.0
+    },
+    {
+      "speaker": "customer",
+      "start": 13.0,
+      "end": 16.0
+    },
+    {
+      "speaker": "agent",
+      "start": 16.0,
+      "end": 20.3
+    },
+    {
+      "speaker": "agent",
+      "start": 20.3,
+      "end": 25.125
+    },
+    {
+      "speaker": "customer",
+      "start": 25.125,
+      "end": 28.525
+    },
+    {
+      "speaker": "customer",
+      "start": 27.925,
+      "end": 30.6
+    },
+    {
+      "speaker": "customer",
+      "start": 30.6,
+      "end": 34.45
+    },
+    {
+      "speaker": "agent",
+      "start": 34.45,
+      "end": 39.05
+    },
+    {
+      "speaker": "agent",
+      "start": 39.05,
+      "end": 44.175
+    },
+    {
+      "speaker": "customer",
+      "start": 44.175,
+      "end": 46.2
+    }
+  ],
+  "event_labels": [
+    {
+      "event_type": "interruption",
+      "start": 27.925,
+      "end": 28.525,
+      "metadata": null
+    },
+    {
+      "event_type": "compliance",
+      "start": 0.0,
+      "end": 4.5,
+      "metadata": {
+        "subtype": "recording_disclosure",
+        "polarity": "negative"
+      }
+    },
+    {
+      "event_type": "compliance",
+      "start": 4.5,
+      "end": 9.325,
+      "metadata": {
+        "subtype": "identity_verification",
+        "polarity": "positive"
+      }
+    },
+    {
+      "event_type": "escalation",
+      "start": 30.6,
+      "end": 34.45,
+      "metadata": null
+    }
+  ],
+  "duration_seconds": 46.2,
+  "reference_transcript": "Hi, you've reached the cancellations team. What can I do for you? To make changes I'll need to verify you. What's the account email? Yeah, the email's my usual one and the name matches. I'd like to close my account effective today. Okay, I can help with that. Let me check what's on the account. There's a loyalty discount I could apply if you'd consider staying. Okay, so I won't be charged again after this, right? How much would that discount actually be? This is exactly why I'm leaving. Put someone senior on. Fair enough. I'll escalate so a manager can finalize this. Your cancellation is confirmed for the end of the cycle. Anything else? Good, thank you. Bye.",
+  "voice_pair": "cross",
+  "domain": "cancellation"
+}

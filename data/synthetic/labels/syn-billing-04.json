@@ -1,0 +1,90 @@
+{
+  "speaker_segments": [
+    {
+      "speaker": "agent",
+      "start": 0.0,
+      "end": 5.2
+    },
+    {
+      "speaker": "agent",
+      "start": 5.2,
+      "end": 10.075
+    },
+    {
+      "speaker": "customer",
+      "start": 10.075,
+      "end": 13.7
+    },
+    {
+      "speaker": "agent",
+      "start": 13.7,
+      "end": 17.775
+    },
+    {
+      "speaker": "agent",
+      "start": 21.275,
+      "end": 26.2
+    },
+    {
+      "speaker": "customer",
+      "start": 26.2,
+      "end": 29.65
+    },
+    {
+      "speaker": "customer",
+      "start": 29.65,
+      "end": 34.0
+    },
+    {
+      "speaker": "agent",
+      "start": 34.0,
+      "end": 39.125
+    },
+    {
+      "speaker": "agent",
+      "start": 39.125,
+      "end": 44.475
+    },
+    {
+      "speaker": "customer",
+      "start": 44.475,
+      "end": 47.45
+    }
+  ],
+  "event_labels": [
+    {
+      "event_type": "silence",
+      "start": 17.775,
+      "end": 21.275,
+      "metadata": null
+    },
+    {
+      "event_type": "compliance",
+      "start": 5.2,
+      "end": 10.075,
+      "metadata": {
+        "subtype": "recording_disclosure",
+        "polarity": "positive"
+      }
+    },
+    {
+      "event_type": "compliance",
+      "start": 5.2,
+      "end": 10.075,
+      "metadata": {
+        "subtype": "identity_verification",
+        "polarity": "negative"
+      }
+    },
+    {
+      "event_type": "escalation",
+      "start": 29.65,
+      "end": 34.0,
+      "metadata": null
+    }
+  ],
+  "duration_seconds": 47.45,
+  "reference_transcript": "Thanks for calling billing support, my name is Sam. How can I help today? Just so you know, this call is recorded for quality purposes. There's a charge on my card I don't recognize at all. Okay, let me pull up the recent charges and take a look. So one of these looks like a duplicate. I can flag it for a refund. I just want to make sure this doesn't happen again next month. No, that's not good enough. Get me someone who can actually fix this. That's fair. I'll escalate this to a manager so we can sort it properly. I've applied the refund and you'll see it in three to five days. Anything else? No, that's everything. Thanks for the help.",
+  "voice_pair": "cross",
+  "domain": "billing"
+}

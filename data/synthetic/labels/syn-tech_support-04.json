@@ -1,0 +1,95 @@
+{
+  "speaker_segments": [
+    {
+      "speaker": "agent",
+      "start": 0.0,
+      "end": 4.65
+    },
+    {
+      "speaker": "agent",
+      "start": 4.65,
+      "end": 9.35
+    },
+    {
+      "speaker": "customer",
+      "start": 9.35,
+      "end": 12.65
+    },
+    {
+      "speaker": "customer",
+      "start": 12.65,
+      "end": 16.625
+    },
+    {
+      "speaker": "agent",
+      "start": 16.625,
+      "end": 20.0
+    },
+    {
+      "speaker": "agent",
+      "start": 23.9,
+      "end": 29.275
+    },
+    {
+      "speaker": "customer",
+      "start": 29.275,
+      "end": 31.625
+    },
+    {
+      "speaker": "customer",
+      "start": 31.625,
+      "end": 35.5
+    },
+    {
+      "speaker": "agent",
+      "start": 35.5,
+      "end": 40.225
+    },
+    {
+      "speaker": "agent",
+      "start": 40.225,
+      "end": 44.75
+    },
+    {
+      "speaker": "customer",
+      "start": 44.75,
+      "end": 47.6
+    }
+  ],
+  "event_labels": [
+    {
+      "event_type": "silence",
+      "start": 20.0,
+      "end": 23.9,
+      "metadata": null
+    },
+    {
+      "event_type": "compliance",
+      "start": 0.0,
+      "end": 4.65,
+      "metadata": {
+        "subtype": "recording_disclosure",
+        "polarity": "negative"
+      }
+    },
+    {
+      "event_type": "compliance",
+      "start": 4.65,
+      "end": 9.35,
+      "metadata": {
+        "subtype": "identity_verification",
+        "polarity": "positive"
+      }
+    },
+    {
+      "event_type": "escalation",
+      "start": 31.625,
+      "end": 35.5,
+      "metadata": null
+    }
+  ],
+  "duration_seconds": 47.6,
+  "reference_transcript": "Hello, you've reached support. This is Drew, what can I help with? Can you confirm the name and email on the account so I can find it? Sure, it's my name with the email I always use. I can't log in, it says my password is wrong but it isn't. Okay, let me walk you through a couple of checks. Let's clear the app cache and reopen it, that fixes most blank screens. Still the same, nothing changed. Forget the steps, escalate me to someone senior right now. I hear you, this has taken too long. Let me bring in a specialist. Glad it's working now. Is there anything else I can help with? No, that's it. Thanks for sticking with it.",
+  "voice_pair": "cross",
+  "domain": "tech_support"
+}

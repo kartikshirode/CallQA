@@ -1,0 +1,95 @@
+{
+  "speaker_segments": [
+    {
+      "speaker": "agent",
+      "start": 0.0,
+      "end": 4.425
+    },
+    {
+      "speaker": "agent",
+      "start": 4.425,
+      "end": 8.65
+    },
+    {
+      "speaker": "agent",
+      "start": 8.65,
+      "end": 13.575
+    },
+    {
+      "speaker": "customer",
+      "start": 13.575,
+      "end": 17.075
+    },
+    {
+      "speaker": "customer",
+      "start": 17.075,
+      "end": 21.0
+    },
+    {
+      "speaker": "agent",
+      "start": 21.0,
+      "end": 25.3
+    },
+    {
+      "speaker": "agent",
+      "start": 29.5,
+      "end": 34.325
+    },
+    {
+      "speaker": "customer",
+      "start": 34.325,
+      "end": 37.0
+    },
+    {
+      "speaker": "customer",
+      "start": 36.4,
+      "end": 39.9
+    },
+    {
+      "speaker": "agent",
+      "start": 39.9,
+      "end": 45.025
+    },
+    {
+      "speaker": "customer",
+      "start": 45.025,
+      "end": 46.975
+    }
+  ],
+  "event_labels": [
+    {
+      "event_type": "silence",
+      "start": 25.3,
+      "end": 29.5,
+      "metadata": null
+    },
+    {
+      "event_type": "interruption",
+      "start": 36.4,
+      "end": 37.0,
+      "metadata": null
+    },
+    {
+      "event_type": "compliance",
+      "start": 4.425,
+      "end": 8.65,
+      "metadata": {
+        "subtype": "recording_disclosure",
+        "polarity": "positive"
+      }
+    },
+    {
+      "event_type": "compliance",
+      "start": 8.65,
+      "end": 13.575,
+      "metadata": {
+        "subtype": "identity_verification",
+        "polarity": "positive"
+      }
+    }
+  ],
+  "duration_seconds": 46.975,
+  "reference_transcript": "Hello, this is Morgan. How can I help with your account today? Just so you're aware, we record these calls for training. Let me confirm a couple details. What name is the account under? Sure, it's my name and the email I sign in with. I want to cancel my subscription, I'm not using it anymore. Okay, I can help with that. Let me check what's on the account. There's a loyalty discount I could apply if you'd consider staying. How much would that discount actually be? No, I've made up my mind, I just want it cancelled. Your cancellation is confirmed for the end of the cycle. Anything else? No, that's it. Thanks.",
+  "voice_pair": "cross",
+  "domain": "cancellation"
+}

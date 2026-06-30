@@ -1,0 +1,95 @@
+{
+  "speaker_segments": [
+    {
+      "speaker": "agent",
+      "start": 0.0,
+      "end": 4.65
+    },
+    {
+      "speaker": "agent",
+      "start": 4.65,
+      "end": 8.35
+    },
+    {
+      "speaker": "customer",
+      "start": 8.35,
+      "end": 12.325
+    },
+    {
+      "speaker": "agent",
+      "start": 12.325,
+      "end": 16.2
+    },
+    {
+      "speaker": "agent",
+      "start": 16.2,
+      "end": 21.125
+    },
+    {
+      "speaker": "customer",
+      "start": 21.125,
+      "end": 23.475
+    },
+    {
+      "speaker": "customer",
+      "start": 22.875,
+      "end": 25.225
+    },
+    {
+      "speaker": "customer",
+      "start": 25.225,
+      "end": 29.1
+    },
+    {
+      "speaker": "agent",
+      "start": 29.1,
+      "end": 33.85
+    },
+    {
+      "speaker": "agent",
+      "start": 33.85,
+      "end": 37.525
+    },
+    {
+      "speaker": "customer",
+      "start": 37.525,
+      "end": 40.375
+    }
+  ],
+  "event_labels": [
+    {
+      "event_type": "interruption",
+      "start": 22.875,
+      "end": 23.475,
+      "metadata": null
+    },
+    {
+      "event_type": "compliance",
+      "start": 4.65,
+      "end": 8.35,
+      "metadata": {
+        "subtype": "recording_disclosure",
+        "polarity": "positive"
+      }
+    },
+    {
+      "event_type": "compliance",
+      "start": 4.65,
+      "end": 8.35,
+      "metadata": {
+        "subtype": "identity_verification",
+        "polarity": "negative"
+      }
+    },
+    {
+      "event_type": "escalation",
+      "start": 25.225,
+      "end": 29.1,
+      "metadata": null
+    }
+  ],
+  "duration_seconds": 40.375,
+  "reference_transcript": "Hello, you've reached support. This is Drew, what can I help with? Heads up, we record support calls for training. I can't log in, it says my password is wrong but it isn't. Let's get that sorted. When did this start happening? I'm going to send a password reset link, watch for it in a moment. Still the same, nothing changed. Still the same, nothing changed. Forget the steps, escalate me to someone senior right now. Okay, I'll escalate to our senior tech team so they can dig in. You're back up and running. Thanks for bearing with me. No, that's it. Thanks for sticking with it.",
+  "voice_pair": "cross",
+  "domain": "tech_support"
+}

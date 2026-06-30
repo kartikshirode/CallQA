@@ -1,0 +1,90 @@
+{
+  "speaker_segments": [
+    {
+      "speaker": "agent",
+      "start": 0.0,
+      "end": 4.5
+    },
+    {
+      "speaker": "agent",
+      "start": 4.5,
+      "end": 8.725
+    },
+    {
+      "speaker": "customer",
+      "start": 8.725,
+      "end": 12.375
+    },
+    {
+      "speaker": "agent",
+      "start": 12.375,
+      "end": 16.675
+    },
+    {
+      "speaker": "agent",
+      "start": 19.875,
+      "end": 25.3
+    },
+    {
+      "speaker": "customer",
+      "start": 25.3,
+      "end": 27.975
+    },
+    {
+      "speaker": "customer",
+      "start": 27.975,
+      "end": 32.175
+    },
+    {
+      "speaker": "agent",
+      "start": 32.175,
+      "end": 36.775
+    },
+    {
+      "speaker": "agent",
+      "start": 36.775,
+      "end": 40.9
+    },
+    {
+      "speaker": "customer",
+      "start": 40.9,
+      "end": 42.85
+    }
+  ],
+  "event_labels": [
+    {
+      "event_type": "silence",
+      "start": 16.675,
+      "end": 19.875,
+      "metadata": null
+    },
+    {
+      "event_type": "compliance",
+      "start": 4.5,
+      "end": 8.725,
+      "metadata": {
+        "subtype": "recording_disclosure",
+        "polarity": "positive"
+      }
+    },
+    {
+      "event_type": "compliance",
+      "start": 4.5,
+      "end": 8.725,
+      "metadata": {
+        "subtype": "identity_verification",
+        "polarity": "negative"
+      }
+    },
+    {
+      "event_type": "escalation",
+      "start": 27.975,
+      "end": 32.175,
+      "metadata": null
+    }
+  ],
+  "duration_seconds": 42.85,
+  "reference_transcript": "Hi, you've reached the cancellations team. What can I do for you? Just so you're aware, we record these calls for training. I'm moving to a different service, so I need to cancel. Okay, I can help with that. Let me check what's on the account. Understood. I'll set the cancellation to process at the end of the period. How much would that discount actually be? I asked to cancel, not for a sales pitch. Get me a manager. Fair enough. I'll escalate so a manager can finalize this. Done. Sorry to see you go, and thanks for being with us. No, that's it. Thanks.",
+  "voice_pair": "cross",
+  "domain": "cancellation"
+}

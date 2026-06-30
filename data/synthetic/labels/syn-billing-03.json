@@ -1,0 +1,89 @@
+{
+  "speaker_segments": [
+    {
+      "speaker": "agent",
+      "start": 0.0,
+      "end": 5.2
+    },
+    {
+      "speaker": "agent",
+      "start": 5.2,
+      "end": 9.675
+    },
+    {
+      "speaker": "agent",
+      "start": 9.675,
+      "end": 14.05
+    },
+    {
+      "speaker": "customer",
+      "start": 14.05,
+      "end": 17.45
+    },
+    {
+      "speaker": "customer",
+      "start": 17.45,
+      "end": 21.075
+    },
+    {
+      "speaker": "agent",
+      "start": 21.075,
+      "end": 25.15
+    },
+    {
+      "speaker": "agent",
+      "start": 25.15,
+      "end": 29.75
+    },
+    {
+      "speaker": "customer",
+      "start": 29.75,
+      "end": 32.575
+    },
+    {
+      "speaker": "customer",
+      "start": 31.975,
+      "end": 34.825
+    },
+    {
+      "speaker": "agent",
+      "start": 34.825,
+      "end": 40.175
+    },
+    {
+      "speaker": "customer",
+      "start": 40.175,
+      "end": 42.225
+    }
+  ],
+  "event_labels": [
+    {
+      "event_type": "interruption",
+      "start": 31.975,
+      "end": 32.575,
+      "metadata": null
+    },
+    {
+      "event_type": "compliance",
+      "start": 5.2,
+      "end": 9.675,
+      "metadata": {
+        "subtype": "recording_disclosure",
+        "polarity": "positive"
+      }
+    },
+    {
+      "event_type": "compliance",
+      "start": 9.675,
+      "end": 14.05,
+      "metadata": {
+        "subtype": "identity_verification",
+        "polarity": "positive"
+      }
+    }
+  ],
+  "duration_seconds": 42.225,
+  "reference_transcript": "Thanks for calling billing support, my name is Sam. How can I help today? Heads up, we do record these calls for training and quality. Can you confirm the name and the email on the account for me? Of course, name and email are both the ones on file. There's a charge on my card I don't recognize at all. Okay, let me pull up the recent charges and take a look. I do see two charges on the same date here, that shouldn't happen. So how long is it going to take to fix? Right, that's exactly what I'm talking about. I've applied the refund and you'll see it in three to five days. Anything else? That's all, appreciate it.",
+  "voice_pair": "cross",
+  "domain": "billing"
+}

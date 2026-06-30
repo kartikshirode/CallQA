@@ -1,0 +1,100 @@
+{
+  "speaker_segments": [
+    {
+      "speaker": "agent",
+      "start": 0.0,
+      "end": 4.45
+    },
+    {
+      "speaker": "agent",
+      "start": 4.45,
+      "end": 8.525
+    },
+    {
+      "speaker": "agent",
+      "start": 8.525,
+      "end": 13.025
+    },
+    {
+      "speaker": "customer",
+      "start": 13.025,
+      "end": 16.65
+    },
+    {
+      "speaker": "customer",
+      "start": 16.65,
+      "end": 20.125
+    },
+    {
+      "speaker": "agent",
+      "start": 20.125,
+      "end": 24.25
+    },
+    {
+      "speaker": "agent",
+      "start": 28.45,
+      "end": 33.425
+    },
+    {
+      "speaker": "customer",
+      "start": 33.425,
+      "end": 36.125
+    },
+    {
+      "speaker": "customer",
+      "start": 36.125,
+      "end": 39.675
+    },
+    {
+      "speaker": "agent",
+      "start": 39.675,
+      "end": 44.45
+    },
+    {
+      "speaker": "agent",
+      "start": 44.45,
+      "end": 49.9
+    },
+    {
+      "speaker": "customer",
+      "start": 49.9,
+      "end": 51.95
+    }
+  ],
+  "event_labels": [
+    {
+      "event_type": "silence",
+      "start": 24.25,
+      "end": 28.45,
+      "metadata": null
+    },
+    {
+      "event_type": "compliance",
+      "start": 4.45,
+      "end": 8.525,
+      "metadata": {
+        "subtype": "recording_disclosure",
+        "polarity": "positive"
+      }
+    },
+    {
+      "event_type": "compliance",
+      "start": 8.525,
+      "end": 13.025,
+      "metadata": {
+        "subtype": "identity_verification",
+        "polarity": "positive"
+      }
+    },
+    {
+      "event_type": "escalation",
+      "start": 36.125,
+      "end": 39.675,
+      "metadata": null
+    }
+  ],
+  "duration_seconds": 51.95,
+  "reference_transcript": "Hello, this is Riley on the refunds desk. How can I help? One thing first, we record these calls for training. To look this up, could you confirm the email tied to the order? Yeah, it's under my name with the email I always use. I was charged for something I cancelled before it shipped. Understood. Give me a moment to look at what happened here. Okay, I'll process the full amount back to your original payment method. Okay, as long as it's the full amount. This is ridiculous. Get me a supervisor please. That's reasonable. I'll escalate this so it gets handled faster. Refund's processed, you'll see it within a few business days. Anything else? That's all I needed, cheers.",
+  "voice_pair": "cross",
+  "domain": "refund"
+}

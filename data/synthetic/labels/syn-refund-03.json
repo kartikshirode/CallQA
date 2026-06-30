@@ -1,0 +1,89 @@
+{
+  "speaker_segments": [
+    {
+      "speaker": "agent",
+      "start": 0.0,
+      "end": 4.4
+    },
+    {
+      "speaker": "agent",
+      "start": 4.4,
+      "end": 8.475
+    },
+    {
+      "speaker": "agent",
+      "start": 8.475,
+      "end": 12.975
+    },
+    {
+      "speaker": "customer",
+      "start": 12.975,
+      "end": 16.6
+    },
+    {
+      "speaker": "customer",
+      "start": 16.6,
+      "end": 20.075
+    },
+    {
+      "speaker": "agent",
+      "start": 20.075,
+      "end": 24.2
+    },
+    {
+      "speaker": "agent",
+      "start": 24.2,
+      "end": 29.8
+    },
+    {
+      "speaker": "customer",
+      "start": 29.8,
+      "end": 33.075
+    },
+    {
+      "speaker": "customer",
+      "start": 32.475,
+      "end": 35.25
+    },
+    {
+      "speaker": "agent",
+      "start": 35.25,
+      "end": 40.7
+    },
+    {
+      "speaker": "customer",
+      "start": 40.7,
+      "end": 42.975
+    }
+  ],
+  "event_labels": [
+    {
+      "event_type": "interruption",
+      "start": 32.475,
+      "end": 33.075,
+      "metadata": null
+    },
+    {
+      "event_type": "compliance",
+      "start": 4.4,
+      "end": 8.475,
+      "metadata": {
+        "subtype": "recording_disclosure",
+        "polarity": "positive"
+      }
+    },
+    {
+      "event_type": "compliance",
+      "start": 8.475,
+      "end": 12.975,
+      "metadata": {
+        "subtype": "identity_verification",
+        "polarity": "positive"
+      }
+    }
+  ],
+  "duration_seconds": 42.975,
+  "reference_transcript": "Hi, refunds team here. What can I sort out for you today? One thing first, we record these calls for training. To look this up, could you confirm the email tied to the order? Yeah, it's under my name with the email I always use. I was charged for something I cancelled before it shipped. Understood. Give me a moment to look at what happened here. I can see the return was received, looks like the refund just didn't trigger. That's what I figured. It shouldn't have been this hard. So when will it actually land in my account? Refund's processed, you'll see it within a few business days. Anything else? Perfect, thank you. Bye now.",
+  "voice_pair": "cross",
+  "domain": "refund"
+}
