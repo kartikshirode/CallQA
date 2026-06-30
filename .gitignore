@@ -28,3 +28,4 @@ data/harpervalley/audio/
 .DS_Store
 .idea/
 .vscode/
+.swarm-audit/
