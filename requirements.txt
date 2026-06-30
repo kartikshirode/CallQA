@@ -1,0 +1,28 @@
+# CallQA dependencies, grouped by purpose.
+# Heavy GPU packages (torch, pyannote, kokoro, faster-whisper) are listed
+# but NOT installed in Phase 0. Install them before the synthesis and ASR phases.
+
+# --- core ---
+pydantic>=2.9,<3
+numpy>=1.26,<2
+soundfile>=0.12
+librosa>=0.10
+pydub>=0.25
+
+# --- ASR ---
+faster-whisper>=1.0
+jiwer>=3.0
+
+# --- diarization ---
+# torch must match your CUDA build; see https://pytorch.org for the right wheel.
+torch>=2.2
+pyannote.audio>=3.1
+
+# --- TTS (synthetic call generation) ---
+kokoro>=0.3
+
+# --- dashboard ---
+streamlit>=1.33
+
+# --- dev ---
+pytest>=8.0
