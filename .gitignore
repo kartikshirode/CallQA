@@ -10,8 +10,12 @@ env/
 # Audio and model artifacts (regenerated, not versioned)
 data/synthetic/**/*.wav
 data/synthetic/**/*.flac
-data/harpervalley/**/*.wav
-data/harpervalley/**/*.flac
+
+# HarperValley raw corpus and derived audio: refetchable, gold lives in the
+# registry, so keep the bytes out of git. The subset manifest stays tracked.
+data/harpervalley/raw/
+data/harpervalley/audio/
+
 *.ckpt
 *.pt
 
