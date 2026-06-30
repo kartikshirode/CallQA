@@ -7,6 +7,11 @@ __pycache__/
 venv/
 env/
 
+# Secrets: never commit tokens or keys
+.env
+*.env
+secrets/
+
 # Audio and model artifacts (regenerated, not versioned)
 data/synthetic/**/*.wav
 data/synthetic/**/*.flac
