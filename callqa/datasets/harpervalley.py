@@ -76,7 +76,17 @@ def gold_from_transcript(
     text joined with spaces in that order. Each speaker turn carries the role
     and start/end in seconds (start_ms and start_ms+duration_ms over 1000).
     """
-    ordered = sorted(segments, key=lambda s: s["start_ms"])
+    # Skip malformed segments rather than let one bad row kill a whole fetch
+    # run. A segment needs timing and a role to become a speaker turn.
+    usable = [
+        s
+        for s in segments
+        if isinstance(s, dict)
+        and s.get("start_ms") is not None
+        and s.get("duration_ms") is not None
+        and s.get("speaker_role")
+    ]
+    ordered = sorted(usable, key=lambda s: s["start_ms"])
     texts = []
     speaker_segments = []
     for seg in ordered:

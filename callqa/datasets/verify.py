@@ -13,16 +13,11 @@ from __future__ import annotations
 
 from typing import Optional
 
-from callqa.registry.schema import CallRecord, EventType, Polarity
+from callqa.registry.schema import CallRecord, EventType
 
 # Sources we treat as the synthetic tier. The synthetic event story only applies
 # to these.
 _SYNTHETIC_SOURCE_PREFIX = "synthetic"
-
-# Compliance subtypes the script template is meant to place on every synthetic
-# call. A missing positive here is allowed (it is a labeled miss), but the event
-# itself should exist.
-_REQUIRED_COMPLIANCE_SUBTYPES = {"recording_disclosure", "identity_verification"}
 
 
 def _is_synthetic(record: CallRecord) -> bool:
@@ -98,9 +93,8 @@ def check_synthetic_events(record: CallRecord) -> list[str]:
 
     Non-synthetic records are skipped and return no problems. For synthetic
     calls:
-      - at least one compliance event must exist
-      - a required compliance subtype carrying negative polarity is a labeled
-        miss and is allowed, not a problem
+      - at least one compliance event must exist (a negative-polarity event is
+        a labeled miss and counts here, that is fine)
       - escalation and interruption spans must have end >= start (schema already
         enforces this, but we keep an explicit guard so a future loosening of
         the schema cannot slip a bad span past us)
@@ -135,17 +129,57 @@ def check_synthetic_events(record: CallRecord) -> list[str]:
     return problems
 
 
+def check_sidecar_matches(record: CallRecord, sidecar: dict) -> list[str]:
+    """Cross-check a loaded label sidecar against the registered row.
+
+    Catches drift between the label JSON on disk and the row the metrics read.
+    Only the fields both carry are compared; a field absent from the sidecar is
+    not checked.
+    """
+    problems: list[str] = []
+
+    side_dur = sidecar.get("duration_seconds")
+    if side_dur is not None and abs(float(side_dur) - record.duration_seconds) > 0.05:
+        problems.append(
+            f"{record.call_id}: sidecar duration {side_dur} != row "
+            f"duration {record.duration_seconds}"
+        )
+
+    side_segs = sidecar.get("speaker_segments")
+    if side_segs is not None and len(side_segs) != len(record.speaker_segments or []):
+        problems.append(
+            f"{record.call_id}: sidecar has {len(side_segs)} speaker segments "
+            f"but row has {len(record.speaker_segments or [])}"
+        )
+
+    side_events = sidecar.get("event_labels")
+    if side_events is not None and len(side_events) != len(record.event_labels or []):
+        problems.append(
+            f"{record.call_id}: sidecar has {len(side_events)} event labels "
+            f"but row has {len(record.event_labels or [])}"
+        )
+
+    side_text = sidecar.get("reference_transcript")
+    if side_text is not None and side_text != (record.reference_transcript or ""):
+        problems.append(
+            f"{record.call_id}: sidecar transcript differs from the row"
+        )
+
+    return problems
+
+
 def verify_record(record: CallRecord, sidecar: Optional[dict] = None) -> list[str]:
     """Run every applicable check and return the combined problem list.
 
-    sidecar is accepted for the synthetic tier so a caller can pass the loaded
-    label JSON, but the registry row already carries the same fields, so the
-    checks read from the record. The argument is kept for callers that want to
-    cross-check the sidecar against the row in future.
+    When a sidecar (the loaded label JSON) is passed, it is cross-checked
+    against the registered row so drift between the two is caught. With no
+    sidecar the checks read from the record alone.
     """
     problems: list[str] = []
     problems.extend(check_bounds(record))
     problems.extend(check_transcript(record))
     problems.extend(check_speaker_segments(record))
     problems.extend(check_synthetic_events(record))
+    if sidecar is not None:
+        problems.extend(check_sidecar_matches(record, sidecar))
     return problems
