@@ -1,12 +1,13 @@
 """pyannote pipeline adapter.
 
 All GPU, token and network use lives here, so the metrics module stays pure and
-its tests need none of that. The module applies the torch.load patch at import
-time because the official pyannote checkpoint will not load otherwise on
-torch 2.6.
+its tests need none of that. Loading the official pyannote checkpoint on
+torch 2.6 needs weights_only=False, but that is opened only around the load
+itself so the rest of the process keeps torch's safe-load default.
 """
 from __future__ import annotations
 
+import contextlib
 import os
 from pathlib import Path
 
@@ -15,16 +16,27 @@ import torch
 from callqa.registry.schema import SpeakerSegment
 
 # torch 2.6 defaults torch.load to weights_only=True, which rejects the official
-# pyannote checkpoint. Patch load to allow the full pickle for this trusted file.
+# pyannote checkpoint.
 _orig_load = torch.load
 
 
-def _patched_load(*a, **k):
-    k["weights_only"] = False
-    return _orig_load(*a, **k)
+@contextlib.contextmanager
+def _allow_full_pickle():
+    """Allow the full pickle for the trusted pyannote checkpoint, scoped to the
+    load. Restores the original torch.load afterward so no other code in the
+    process loses the weights_only default."""
+    saved = torch.load
 
+    def _patched(*a, **k):
+        k["weights_only"] = False
+        return _orig_load(*a, **k)
 
-torch.load = _patched_load
+    torch.load = _patched
+    try:
+        yield
+    finally:
+        torch.load = saved
+
 
 _PIPELINE = None
 _PIPELINE_NAME = "pyannote/speaker-diarization-3.1"
@@ -57,7 +69,8 @@ def load_pipeline():
     from pyannote.audio import Pipeline
 
     token = load_token()
-    pipe = Pipeline.from_pretrained(_PIPELINE_NAME, use_auth_token=token)
+    with _allow_full_pickle():
+        pipe = Pipeline.from_pretrained(_PIPELINE_NAME, use_auth_token=token)
     if pipe is None:
         raise RuntimeError(
             "pyannote returned no pipeline; check that the HF token has "
