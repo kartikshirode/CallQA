@@ -211,3 +211,42 @@ class TestProviders:
         assert reg["local-whisper"] is LocalWhisperProvider
         assert reg["deepgram"] is DeepgramProvider
         assert reg["assemblyai"] is AssemblyAIProvider
+
+
+class TestBenchmarkTables:
+    """The benchmark table math, exercised without the GPU. build_tables lives
+    in the script, so it is loaded directly."""
+
+    def _load_bench(self):
+        import importlib.util
+        from pathlib import Path
+
+        root = Path(__file__).resolve().parents[1]
+        spec = importlib.util.spec_from_file_location(
+            "asr_benchmark", root / "scripts" / "asr_benchmark.py"
+        )
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        return mod
+
+    def test_rtf_is_pooled_not_mean_of_ratios(self):
+        # WER, CER and latency in a row are pooled total-over-total. The RTF has
+        # to pool the same way or the two throughput columns contradict each
+        # other. A long fast call plus a short slow one: mean of per-call RTF is
+        # (10.0 + 0.5) / 2 = 5.25, but the honest pooled RTF is total audio over
+        # total latency, which must also equal 60 / latency_per_min.
+        bench = self._load_bench()
+        results = [
+            {"model": "tiny.en", "tier": "harpervalley", "reference": "a b",
+             "hypothesis": "a b", "latency_seconds": 60.0,
+             "audio_seconds": 600.0, "rtf": 10.0},
+            {"model": "tiny.en", "tier": "harpervalley", "reference": "c d",
+             "hypothesis": "c d", "latency_seconds": 24.0,
+             "audio_seconds": 12.0, "rtf": 0.5},
+        ]
+        _, summaries = bench.build_tables(results)
+        s = summaries[0]
+        pooled = s["total_audio"] / s["total_latency"]
+        assert s["rtf"] == pytest.approx(pooled)
+        assert s["rtf"] == pytest.approx(60.0 / s["latency_per_min"])
+        assert s["rtf"] != pytest.approx(5.25)

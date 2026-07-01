@@ -125,8 +125,8 @@ def build_tables(results: list[dict]) -> tuple[str, list[dict]]:
     markdown table and the list of summary dicts for reuse in the cost section.
     """
     header = (
-        "| model | tier | calls scored | WER | CER | latency / audio min | avg RTF |\n"
-        "|-------|------|--------------|-----|-----|---------------------|---------|"
+        "| model | tier | calls scored | WER | CER | latency / audio min | RTF |\n"
+        "|-------|------|--------------|-----|-----|---------------------|-----|"
     )
     lines = [header]
     summaries: list[dict] = []
@@ -143,7 +143,12 @@ def build_tables(results: list[dict]) -> tuple[str, list[dict]]:
         total_audio = sum(r["audio_seconds"] for r in rows)
         audio_minutes = total_audio / 60.0 if total_audio > 0 else 0.0
         latency_per_min = total_latency / audio_minutes if audio_minutes > 0 else 0.0
-        avg_rtf = sum(r["rtf"] for r in rows) / len(rows) if rows else 0.0
+        # RTF is pooled total-audio over total-latency, the same total-over-total
+        # basis as WER, CER and latency in this row, so the two throughput
+        # columns cannot tell different stories. A mean of per-call ratios would
+        # be Jensen-biased toward short calls and any zero-latency row would drag
+        # it. This equals 60 / latency_per_min by construction.
+        pooled_rtf = total_audio / total_latency if total_latency > 0 else 0.0
 
         summaries.append(
             {
@@ -155,12 +160,12 @@ def build_tables(results: list[dict]) -> tuple[str, list[dict]]:
                 "total_latency": total_latency,
                 "total_audio": total_audio,
                 "latency_per_min": latency_per_min,
-                "avg_rtf": avg_rtf,
+                "rtf": pooled_rtf,
             }
         )
         lines.append(
             f"| {model} | {tier} | {len(rows)} | {score.wer:.3f} | "
-            f"{score.cer:.3f} | {latency_per_min:.2f}s | {avg_rtf:.2f} |"
+            f"{score.cer:.3f} | {latency_per_min:.2f}s | {pooled_rtf:.2f} |"
         )
 
     return "\n".join(lines), summaries
@@ -215,10 +220,12 @@ are cached to data/asr, so this table can be rebuilt without re-running the GPU.
 
 {table}
 
-WER and CER are pooled across the calls in each group, not averaged per call, so
-a longer call carries more weight. Both sides pass through the normalizer first,
-which lowercases, strips punctuation and drops the HarperValley bracketed markers
-so real WER is not inflated by markup.
+WER, CER, latency per audio minute and RTF are all pooled across the calls in
+each group on a total-over-total basis, not averaged per call, so a longer call
+carries more weight and the throughput columns stay consistent with each other.
+Both sides pass through the normalizer first, which lowercases, strips
+punctuation and drops the HarperValley bracketed markers so real WER is not
+inflated by markup.
 
 ## Cost model
 
