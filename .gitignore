@@ -21,6 +21,10 @@ data/synthetic/**/*.flac
 data/harpervalley/raw/
 data/harpervalley/audio/
 
+# Cached Whisper transcripts from the Week 2 sweep: rebuildable from the audio,
+# keyed by model and call, so keep them out of git.
+data/asr/
+
 *.ckpt
 *.pt
 
