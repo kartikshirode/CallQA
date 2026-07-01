@@ -46,6 +46,12 @@ _TRANSCRIPT_SUFFIX = ".json"
 # --- pure logic -------------------------------------------------------------
 
 
+def _is_number(value) -> bool:
+    """True for a real int or float timing, excluding bool (a bool is an int in
+    Python, but a True start_ms is not a valid timing)."""
+    return isinstance(value, (int, float)) and not isinstance(value, bool)
+
+
 def mix_channels(agent_wave: np.ndarray, caller_wave: np.ndarray) -> np.ndarray:
     """Mix the agent and caller channels into one mono track.
 
@@ -77,13 +83,19 @@ def gold_from_transcript(
     and start/end in seconds (start_ms and start_ms+duration_ms over 1000).
     """
     # Skip malformed segments rather than let one bad row kill a whole fetch
-    # run. A segment needs timing and a role to become a speaker turn.
+    # run. A segment needs a role and timing that is a real, non-negative number
+    # to become a speaker turn: a string-typed timing would crash the ordering
+    # or the addition below, and a negative duration would build a reversed span
+    # the SpeakerSegment validator rejects. Either would abort the whole fetch,
+    # which is exactly what the skip is meant to prevent.
     usable = [
         s
         for s in segments
         if isinstance(s, dict)
-        and s.get("start_ms") is not None
-        and s.get("duration_ms") is not None
+        and _is_number(s.get("start_ms"))
+        and _is_number(s.get("duration_ms"))
+        and s["start_ms"] >= 0
+        and s["duration_ms"] >= 0
         and s.get("speaker_role")
     ]
     ordered = sorted(usable, key=lambda s: s["start_ms"])

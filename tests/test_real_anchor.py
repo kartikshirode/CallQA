@@ -61,6 +61,24 @@ class TestHarperValley:
         assert segments[1].start == 2.0
         assert segments[1].end == 3.0
 
+    def test_gold_skips_malformed_timing_segments(self):
+        # The parser promises to skip malformed segments rather than crash a
+        # whole fetch. A non-numeric timing and a negative duration are both
+        # malformed and must be dropped, not raise, same as a missing key.
+        segs = [
+            {"speaker_role": "agent", "start_ms": 0, "duration_ms": 1000,
+             "human_transcript": "good one"},
+            {"speaker_role": "agent", "start_ms": "1000", "duration_ms": 500,
+             "human_transcript": "string timing"},
+            {"speaker_role": "caller", "start_ms": 2000, "duration_ms": -500,
+             "human_transcript": "negative duration"},
+        ]
+        transcript, segments = gold_from_transcript(segs)
+        assert transcript == "good one"
+        assert len(segments) == 1
+        assert segments[0].start == 0.0
+        assert segments[0].end == 1.0
+
     def test_sample_is_seed_repeatable_with_count(self):
         ids = [f"sid{i}" for i in range(50)]
         a = sample_call_ids(ids, 10, seed=123)
