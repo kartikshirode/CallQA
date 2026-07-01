@@ -2,9 +2,11 @@
 
 This is the context a fresh session needs to pick up CallQA without re-deriving anything. Read this, then `docs/REPO_MAP.md` for the structure, `PLAN.md` for the full roadmap, and `docs/DATASET_CARD.md` for the data.
 
-## Current state (end of Week 1)
+## Current state (Week 2 in progress)
 
-Dataset phase is complete and audited GREEN. Both tiers built, verified, registered. 60 calls in `data/registry/registry.jsonl` (20 synthetic, 40 HarperValley). 77 tests passing. Next up is Week 2, the ASR and WER benchmark.
+Dataset phase is complete and audited GREEN. Both tiers built, verified, registered. 60 calls in `data/registry/registry.jsonl` (20 synthetic, 40 HarperValley).
+
+Week 2 code is built and committed: the pure ASR core (`callqa/asr/` normalizer, WER/CER metrics, transcript object), the faster-whisper adapter, the Deepgram/AssemblyAI stub interface, and the benchmark script `scripts/asr_benchmark.py`. 109 tests passing, all offline. What is left is the actual GPU sweep: run `python scripts/asr_benchmark.py` to transcribe all 60 calls across tiny/base/small.en, which caches transcripts to `data/asr/` and writes `docs/asr_benchmark_report.md`. That run is the remaining Week 2 step. All audio is on disk, so no rebuild is needed first.
 
 A four-phase swarm audit ran at the end of Week 1. It found five hardening issues, none in the shipped data, all fixed and validated. Full writeup in `docs/progress/week1-audit.md`. The fixes: atomic registry write, scoped torch.load override, an assembler timeline clamp, a defensive HarperValley parser, and a real sidecar cross-check in verify.
 

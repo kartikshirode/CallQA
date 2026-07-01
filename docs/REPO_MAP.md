@@ -65,6 +65,23 @@ cheap to test and safe to import) or heavy.
   weights_only override for torch 2.6 is scoped to a context manager around the
   checkpoint load, not a global patch.
 
+### asr/  Week 2, transcription and WER
+- `normalize.py` (pure) - the WER text normalizer. Lowercases, drops the
+  HarperValley bracketed markers ([noise], <unk>), strips punctuation, and joins
+  contractions (that's -> thats) so an apostrophe-style mismatch is not scored as
+  a real error. This is the honesty-critical module.
+- `metrics.py` (pure, jiwer) - `word_error_rate`, `character_error_rate`, and
+  `aggregate_score` which pools a corpus into one `AsrScore` rather than averaging
+  per-call rates. Has an empty-reference guard.
+- `transcript.py` (pure) - `Transcript` and `TranscriptSegment`, the
+  provider-neutral result object with JSON round-trip for the on-disk cache.
+- `whisper_adapter.py` (heavy, GPU) - wraps faster-whisper. faster_whisper is
+  imported lazily so the module imports GPU-free; each size loads on cuda once and
+  caches. No token, Whisper checkpoints are not gated.
+- `providers.py` (mixed) - the `AsrProvider` protocol plus `LocalWhisperProvider`
+  and the Deepgram and AssemblyAI stubs. The stubs read a key if present but make
+  no network call and raise a Week 6 NotImplementedError.
+
 ## scripts/  build order
 
 ```
@@ -77,17 +94,25 @@ fetch_harpervalley.py   download + mix the 40 real calls, register them
 verify_dataset.py       consistency checks, exits nonzero on failure
 dataset_stats.py        per-tier summary and negative-class ratios
 diarization_gate.py     runs the pyannote pipeline, reports DER (needs GPU+token)
+asr_benchmark.py        Week 2 Whisper sweep, WER/CER report (needs GPU), caches
 ```
 
 Everything except `fetch_harpervalley` and `diarization_gate` is offline and
 deterministic from a seed.
 
-## tests/  5 stage files, 77 tests
+## tests/  6 stage files, 109 tests
 
-Grouped by what Week 1 delivers, not one file per module. `test_registry`,
-`test_synthetic`, `test_real_anchor`, `test_telephone`, `test_verify`. Run with
-`python -m pytest -q`, about 1.6s, no GPU or token needed. See `tests/README.md`
-for the predefined-vs-scratch rule.
+Grouped by what each stage delivers, not one file per module. Week 1:
+`test_registry`, `test_synthetic`, `test_real_anchor`, `test_telephone`,
+`test_verify`. Week 2 adds `test_asr` (normalizer, WER/CER, transcript, provider
+stubs). Run with `python -m pytest -q`, about 2s, no GPU or token needed. See
+`tests/README.md` for the predefined-vs-scratch rule.
+
+Add the ASR cache to the data map:
+
+```
+data/asr/<model>/<call_id>.json           cached transcripts (gitignored)
+```
 
 ## data/  what is tracked
 
