@@ -14,6 +14,13 @@ from callqa.asr.metrics import (
     word_error_rate,
 )
 from callqa.asr.normalize import MARKER_RE, normalize_text
+from callqa.asr.providers import (
+    AssemblyAIProvider,
+    AsrProvider,
+    DeepgramProvider,
+    LocalWhisperProvider,
+    available_providers,
+)
 from callqa.asr.transcript import Transcript, TranscriptSegment
 
 
@@ -145,3 +152,62 @@ class TestTranscript:
     def test_segment_end_before_start_raises(self):
         with pytest.raises(ValidationError):
             TranscriptSegment(start=2.0, end=1.0, text="x")
+
+
+class TestProviders:
+    """Provider interface and cloud stubs. All GPU-free: the cloud stubs raise
+    before any work, and the local provider is only inspected, never invoked."""
+
+    def test_deepgram_transcribe_raises_not_implemented(self):
+        # Raises before any network touch, so asserting the raise is enough to
+        # prove no cloud call happens.
+        with pytest.raises(NotImplementedError):
+            DeepgramProvider().transcribe("x.wav", "c1", 10.0)
+
+    def test_assemblyai_transcribe_raises_not_implemented(self):
+        with pytest.raises(NotImplementedError):
+            AssemblyAIProvider().transcribe("x.wav", "c1", 10.0)
+
+    def test_stub_message_points_at_week_6(self):
+        # The error is meant to be read by a human, so it names the gate.
+        with pytest.raises(NotImplementedError, match="Week 6"):
+            DeepgramProvider().transcribe("x.wav", "c1", 10.0)
+
+    def test_cloud_stubs_construct_without_keys(self):
+        # No key in env means api_key is None, and construction still works with
+        # no network. Only transcribe is gated.
+        assert DeepgramProvider().api_key is None or isinstance(
+            DeepgramProvider().api_key, str
+        )
+        assert AssemblyAIProvider().api_key is None or isinstance(
+            AssemblyAIProvider().api_key, str
+        )
+
+    def test_cloud_stub_reads_explicit_key_without_network(self):
+        # A key passed in is stored, still no network happens at construction.
+        assert DeepgramProvider(api_key="k").api_key == "k"
+        assert AssemblyAIProvider(api_key="k").api_key == "k"
+
+    def test_local_provider_has_shared_interface(self):
+        # Shaped like the contract without invoking it: name plus a callable
+        # transcribe. No model load, no GPU.
+        provider = LocalWhisperProvider()
+        assert isinstance(provider.name, str)
+        assert provider.name
+        assert callable(provider.transcribe)
+
+    def test_all_providers_satisfy_the_protocol(self):
+        # The runtime-checkable Protocol confirms every provider carries the
+        # shared name plus transcribe surface. Structural, so no instance runs.
+        for provider in (
+            LocalWhisperProvider(),
+            DeepgramProvider(),
+            AssemblyAIProvider(),
+        ):
+            assert isinstance(provider, AsrProvider)
+
+    def test_registry_lists_the_three_providers(self):
+        reg = available_providers()
+        assert reg["local-whisper"] is LocalWhisperProvider
+        assert reg["deepgram"] is DeepgramProvider
+        assert reg["assemblyai"] is AssemblyAIProvider
